@@ -425,12 +425,147 @@
   .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s ease, transform 1s cubic-bezier(.16, 1, .3, 1); }
   .reveal.in { opacity: 1; transform: none; }
 
+  /* ---------- IZDVOJENI PROJEKTI ---------- */
+  .projects { padding: 120px var(--gutter) 160px; }
+  .projects-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+  .projects-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(64px, 10vw, 160px);
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+  .projects-title span {
+    color: transparent;
+    -webkit-text-stroke: clamp(1.5px, 0.012em, 3px) var(--gold);
+  }
+  .projects-intro {
+    max-width: 320px;
+    color: var(--muted);
+    padding-left: 20px;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .project-list { display: flex; flex-direction: column; gap: 32px; }
+  .project {
+    position: sticky;
+    top: calc(var(--nav-h) + 24px);
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 48px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--bg-2);
+    box-shadow: 0 -24px 48px rgba(0, 0, 0, 0.4);
+  }
+  .project:nth-child(2) { top: calc(var(--nav-h) + 48px); }
+  .project:nth-child(3) { top: calc(var(--nav-h) + 72px); }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 8px 0;
+  }
+  .project-top { display: flex; justify-content: space-between; align-items: center; }
+  .project-num {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--gold);
+  }
+  .project-client {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .project-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 0.96;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .project-desc {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--text);
+  }
+  .project-desc em { font-style: italic; color: var(--gold); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 24px; }
+  .tags li {
+    padding: 8px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .project-link .arrow {
+    display: grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    transition: background .3s ease, border-color .3s ease, transform .3s ease;
+  }
+  .project-link:hover .arrow { background: var(--gold); border-color: var(--gold); color: var(--bg); transform: rotate(-45deg); }
+  .project-link.is-soon { color: var(--muted); pointer-events: none; }
+
+  .project-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .project-media img, .project-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .project-media.is-empty {
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(80% 80% at 70% 20%, rgba(201,168,106,0.08), transparent 70%),
+      repeating-linear-gradient(135deg, rgba(242,239,234,0.02) 0 1px, transparent 1px 12px),
+      var(--bg-3);
+  }
+  .project-media.is-empty span {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
   /* ---------- TABLET ---------- */
   @media (max-width: 1024px) {
     .nav-links { display: none; }
     .hero-top { grid-template-columns: 1fr; }
     .services-head { grid-template-columns: 1fr; gap: 40px; }
     .services-title { font-size: 52px; }
+    .projects-head { flex-direction: column; align-items: flex-start; }
+    .project { grid-template-columns: 1fr; gap: 32px; }
+    .project-media { order: -1; }
   }
 
   /* ---------- MOBILNI (pod 360px) ---------- */
@@ -453,6 +588,12 @@
     @keyframes marquee { to { transform: translateX(calc(-50% - 8px)); } }
     .work-card { width: 280px; }
     .work-card span { left: 12px; bottom: 12px; font-size: 10px; padding: 4px 8px; }
+    .projects { padding: 80px var(--gutter) 96px; }
+    .projects-head { margin-bottom: 48px; }
+    .project, .project:nth-child(2), .project:nth-child(3) { position: relative; top: 0; padding: 16px 16px 24px; border-radius: 16px; }
+    .project-info { gap: 24px; padding: 0 4px; }
+    .project-name { font-size: 40px; margin-bottom: 12px; }
+    .project-desc { font-size: 24px; }
     .hero-bottom .tagline { max-width: 160px; line-height: 1.6; }
   }
 
@@ -554,6 +695,74 @@
   </div>
 </section>
 
+<!-- IZDVOJENI PROJEKTI -->
+<section class="projects" id="projekti">
+  <div class="projects-head">
+    <div class="reveal">
+      <span class="label" data-i18n="projLabel">[ Studije slučaja ]</span>
+      <h2 class="projects-title" data-i18n="projTitle">Izdvojeni <span>radovi.</span></h2>
+    </div>
+    <p class="projects-intro reveal" data-i18n="projIntro">Tri projekta iz ugostiteljstva. Svaki je počeo konkretnim problemom klijenta, a završio se sajtom koji radi za njega.</p>
+  </div>
+
+  <div class="project-list">
+    <article class="project">
+      <div class="project-info">
+        <div class="project-top">
+          <span class="project-num">01</span>
+          <span class="project-client" data-i18n="popyClient">Beograd · Kafeterije</span>
+        </div>
+        <div>
+          <h3 class="project-name">Popy Coffee Family</h3>
+          <p class="project-desc" data-i18n="popyDesc">Sajt koji je lancu kafeterija doneo <em>nove ljude i dve franšize.</em></p>
+        </div>
+        <div>
+          <ul class="tags"><li data-i18n="tagCafes">Kafeterije</li><li data-i18n="tagUi">UI dizajn</li><li data-i18n="tagWebflow">Webflow</li></ul>
+          <a class="project-link" href="https://popycoffeefamily.com/" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <!-- Ovde ide video ili slika projekta, npr: <img src="img/popy.webp" alt="Popy Coffee Family"> ili <video src="img/popy.mp4" autoplay muted loop playsinline></video>; obriši klasu is-empty i <span> -->
+      <div class="project-media is-empty"><span data-i18n="mediaSoon">Video projekta uskoro</span></div>
+    </article>
+    <article class="project">
+      <div class="project-info">
+        <div class="project-top">
+          <span class="project-num">02</span>
+          <span class="project-client" data-i18n="terrazzaClient">Valjevo · Restoran</span>
+        </div>
+        <div>
+          <h3 class="project-name">Terrazza</h3>
+          <p class="project-desc" data-i18n="terrazzaDesc">Premium redizajn za restoran <em>italijanske i srpske kuhinje.</em></p>
+        </div>
+        <div>
+          <ul class="tags"><li data-i18n="tagRestaurant">Restoran</li><li data-i18n="tagUi">UI dizajn</li><li data-i18n="tagDev">Development</li></ul>
+          <a class="project-link" href="https://rakiclukadesign-code.github.io/terrazza-site/" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <!-- Ovde ide video ili slika projekta, npr: <img src="img/terrazza.webp" alt="Terrazza"> ili <video src="img/terrazza.mp4" autoplay muted loop playsinline></video>; obriši klasu is-empty i <span> -->
+      <div class="project-media is-empty"><span data-i18n="mediaSoon">Video projekta uskoro</span></div>
+    </article>
+    <article class="project">
+      <div class="project-info">
+        <div class="project-top">
+          <span class="project-num">03</span>
+          <span class="project-client" data-i18n="badClient">Pržionica kafe</span>
+        </div>
+        <div>
+          <h3 class="project-name">BAD Coffee Company</h3>
+          <p class="project-desc" data-i18n="badDesc">Online prodavnica za pržionicu kafe <em>sa karakterom.</em></p>
+        </div>
+        <div>
+          <ul class="tags"><li data-i18n="tagEcom">E-commerce</li><li data-i18n="tagShopify">Shopify</li><li data-i18n="tagUi">UI dizajn</li></ul>
+          <span class="project-link is-soon"><span data-i18n="soon">Uskoro uživo</span><span class="arrow">↗</span></span>
+        </div>
+      </div>
+      <!-- Ovde ide video ili slika projekta, npr: <img src="img/bad.webp" alt="BAD Coffee Company"> ili <video src="img/bad.mp4" autoplay muted loop playsinline></video>; obriši klasu is-empty i <span> -->
+      <div class="project-media is-empty"><span data-i18n="mediaSoon">Video projekta uskoro</span></div>
+    </article>
+  </div>
+</section>
+
 <script>
   const dict = {
     sr: {
@@ -572,7 +781,19 @@
       scroll: "Skroluj",
       servLabel: "[ Šta radim ]",
       servTitle: "Sajtovi za restorane, kafiće i pržionice, napravljeni da dovedu <em>goste, ljude i partnere.</em>",
-      servNote: "<strong>Od ideje do živog sajta.</strong>Dizajn u Figmi, izrada u Webflow-u, Shopify-u ili u kodu. Jedna osoba, ceo proces."
+      servNote: "<strong>Od ideje do živog sajta.</strong>Dizajn u Figmi, izrada u Webflow-u, Shopify-u ili u kodu. Jedna osoba, ceo proces.",
+      projLabel: "[ Studije slučaja ]",
+      projTitle: "Izdvojeni <span>radovi.</span>",
+      projIntro: "Tri projekta iz ugostiteljstva. Svaki je počeo konkretnim problemom klijenta, a završio se sajtom koji radi za njega.",
+      popyClient: "Beograd · Kafeterije",
+      popyDesc: "Sajt koji je lancu kafeterija doneo <em>nove ljude i dve franšize.</em>",
+      terrazzaClient: "Valjevo · Restoran",
+      terrazzaDesc: "Premium redizajn za restoran <em>italijanske i srpske kuhinje.</em>",
+      badClient: "Pržionica kafe",
+      badDesc: "Online prodavnica za pržionicu kafe <em>sa karakterom.</em>",
+      tagCafes: "Kafeterije", tagUi: "UI dizajn", tagWebflow: "Webflow", tagRestaurant: "Restoran",
+      tagDev: "Development", tagEcom: "E-commerce", tagShopify: "Shopify",
+      viewSite: "Pogledaj sajt", soon: "Uskoro uživo", mediaSoon: "Video projekta uskoro"
     },
     en: {
       title: "Luka Rakić | Websites for hospitality",
@@ -590,7 +811,19 @@
       scroll: "Scroll",
       servLabel: "[ What I do ]",
       servTitle: "Websites for restaurants, cafés and roasteries, built to bring in <em>guests, staff and partners.</em>",
-      servNote: "<strong>From idea to live website.</strong>Designed in Figma, built in Webflow, Shopify or code. One person, the whole process."
+      servNote: "<strong>From idea to live website.</strong>Designed in Figma, built in Webflow, Shopify or code. One person, the whole process.",
+      projLabel: "[ Case studies ]",
+      projTitle: "Featured <span>work.</span>",
+      projIntro: "Three hospitality projects. Each one started with a real client problem and ended with a website that works for them.",
+      popyClient: "Belgrade · Cafés",
+      popyDesc: "A website that brought a café chain <em>new staff and two franchises.</em>",
+      terrazzaClient: "Valjevo · Restaurant",
+      terrazzaDesc: "A premium redesign for an <em>Italian and Serbian restaurant.</em>",
+      badClient: "Coffee roastery",
+      badDesc: "An online store for a coffee roastery <em>with attitude.</em>",
+      tagCafes: "Cafés", tagUi: "UI design", tagWebflow: "Webflow", tagRestaurant: "Restaurant",
+      tagDev: "Development", tagEcom: "E-commerce", tagShopify: "Shopify",
+      viewSite: "View website", soon: "Live soon", mediaSoon: "Project video coming soon"
     }
   };
 
