@@ -400,6 +400,12 @@
   }
   .work-card:hover img { filter: none; transform: scale(1); }
   @media (hover: none) { .work-card img { filter: none; transform: none; } }
+  .work-card.is-empty {
+    background:
+      radial-gradient(80% 80% at 70% 20%, rgba(201,168,106,0.08), transparent 70%),
+      repeating-linear-gradient(135deg, rgba(242,239,234,0.02) 0 1px, transparent 1px 12px),
+      var(--bg-2);
+  }
   .work-card span {
     position: absolute;
     left: 16px;
@@ -532,15 +538,18 @@
 
   <div class="marquee" aria-label="Radovi">
     <div class="marquee-track" id="marqueeTrack">
-      <figure class="work-card"><img src="img/popy-hero.webp" alt="Popy Coffee Family, početna stranica" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
-      <figure class="work-card"><img src="img/terrazza-hero.webp" alt="Terrazza, početna stranica" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
-      <figure class="work-card"><img src="img/popy-lokacije.webp" alt="Popy Coffee Family, lokacije" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
-      <figure class="work-card"><img src="img/terrazza-jela.webp" alt="Terrazza, istaknuta jela" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
-      <figure class="work-card"><img src="img/popy-meni.webp" alt="Popy Coffee Family, meni" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
-      <figure class="work-card"><img src="img/terrazza-prostor.webp" alt="Terrazza, prostor" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
-      <figure class="work-card"><img src="img/popy-merch.webp" alt="Popy Coffee Family, merč" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
-      <figure class="work-card"><img src="img/terrazza-onama.webp" alt="Terrazza, o nama" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
-      <figure class="work-card"><img src="img/popy-karijera.webp" alt="Popy Coffee Family, karijera" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="Popy Coffee" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>Popy Coffee</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="Terrazza" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>Terrazza</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="BAD Coffee" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>BAD Coffee</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="Popy Coffee" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>Popy Coffee</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="Terrazza" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>Terrazza</span></figure>
+      <!-- Ovde ide screenshot: <img src="img/ime-slike.webp" alt="BAD Coffee" loading="lazy" width="800" height="500"> -->
+      <figure class="work-card is-empty"><span>BAD Coffee</span></figure>
     </div>
   </div>
 </section>
