@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luka Rakić | Sajtovi za ugostitelje</title>
+<meta name="description" content="Sajtovi i online prodavnice za restorane, kafiće i pržionice koje žele da budu primećene.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg-2: #141414;
+    --bg-3: #1F1F1F;
+    --line: rgba(242, 239, 234, 0.08);
+    --line-strong: rgba(242, 239, 234, 0.16);
+    --text: #F2EFEA;
+    --muted: #8C8882;
+    --gold: #C9A86A;
+    --gold-dim: rgba(201, 168, 106, 0.16);
+
+    --font-display: "Anton", "Impact", sans-serif;
+    --font-serif: "Instrument Serif", Georgia, serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+
+    --gutter: 40px;
+    --nav-h: 80px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  /* ---------- NAVIGACIJA ---------- */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--nav-h);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--gutter);
+    background: linear-gradient(to bottom, rgba(10,10,10,0.92), rgba(10,10,10,0));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-links a {
+    position: relative;
+    color: var(--muted);
+    transition: color .3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 100%; height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s ease;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+
+  .lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+  }
+  .lang button { color: var(--muted); transition: color .3s ease; padding: 4px 0; }
+  .lang button[aria-pressed="true"] { color: var(--gold); }
+  .lang .sep { width: 1px; height: 12px; background: var(--line-strong); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 44px;
+    padding: 0 24px;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .btn .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .btn:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+  .btn:hover .dot { background: var(--bg); }
+
+  .burger { display: none; width: 44px; height: 44px; position: relative; }
+  .burger span {
+    position: absolute;
+    left: 12px; right: 12px;
+    height: 1px;
+    background: var(--text);
+    transition: transform .3s ease, top .3s ease;
+  }
+  .burger span:nth-child(1) { top: 18px; }
+  .burger span:nth-child(2) { top: 26px; }
+  .nav.open .burger span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+  .nav.open .burger span:nth-child(2) { top: 22px; transform: rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: var(--bg);
+    padding: 120px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; }
+  .mobile-menu nav { display: flex; flex-direction: column; gap: 8px; }
+  .mobile-menu nav a {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .mobile-menu .lang { font-size: 16px; gap: 16px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(var(--nav-h) + 80px) var(--gutter) 40px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(32% 48% at 50% 44%, rgba(242,239,234,0.08), transparent 72%),
+      radial-gradient(60% 50% at 80% 20%, rgba(201,168,106,0.08), transparent 70%),
+      radial-gradient(50% 60% at 0% 100%, rgba(242,239,234,0.04), transparent 70%),
+      var(--bg);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.06;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Portret u heru */
+  .hero-photo {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 0;
+    height: min(92%, 1040px);
+    width: auto;
+    transform: translateX(-50%) scale(1.04);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 56%, transparent 96%);
+    mask-image: linear-gradient(to bottom, #000 56%, transparent 96%);
+    animation: photo-in 1.6s cubic-bezier(.16, 1, .3, 1) .2s forwards;
+  }
+  @keyframes photo-in { to { opacity: 1; transform: translateX(-50%) scale(1); } }
+
+  .hero-top, .hero-title, .hero-bottom { position: relative; z-index: 1; }
+
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-intro {
+    max-width: 480px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .hero-intro em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+  }
+  .hero-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 20px;
+    border-left: 1px solid var(--line-strong);
+  }
+  .hero-stats strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--text);
+  }
+  .hero-stats span {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    max-width: 160px;
+    line-height: 1.4;
+  }
+
+  .hero-title {
+    margin: 64px 0 32px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.86;
+    letter-spacing: -0.008em;
+  }
+  .hero-title .row {
+    display: block;
+    overflow: hidden;
+    padding-top: 0.04em;
+  }
+  .hero-title .fit {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 18vw;
+    transform: translateY(104%);
+    animation: rise 1.2s cubic-bezier(.16, 1, .3, 1) forwards;
+  }
+  .hero-title .row:nth-child(2) { text-align: right; }
+  .hero-title .row:nth-child(2) .fit { animation-delay: .12s; color: transparent; -webkit-text-stroke: 1px var(--gold); }
+  @keyframes rise { to { transform: translateY(0); } }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .scroll .track {
+    position: relative;
+    width: 48px; height: 1px;
+    background: var(--line-strong);
+    overflow: hidden;
+  }
+  .scroll .track::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    animation: slide 2s ease-in-out infinite;
+  }
+  @keyframes slide { 50% { transform: translateX(0); } 100% { transform: translateX(100%); } }
+
+  .fade-in { opacity: 0; animation: fade 1s ease .4s forwards; }
+  @keyframes fade { to { opacity: 1; } }
+
+  /* ---------- ŠTA RADIM ---------- */
+  .services {
+    position: relative;
+    padding: 160px 0 120px;
+    border-top: 1px solid var(--line);
+  }
+  .services-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 80px;
+    align-items: end;
+    padding: 0 var(--gutter);
+  }
+  .services-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+    max-width: 920px;
+  }
+  .services-title em { font-style: italic; color: var(--gold); }
+  .services-note {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding-left: 20px;
+    border-left: 1px solid var(--line-strong);
+  }
+  .services-note strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 8px; }
+
+  .marquee {
+    margin-top: 96px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(calc(-50% - 12px)); } }
+
+  .work-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 480px;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+  }
+  .work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(.4) brightness(.85);
+    transform: scale(1.02);
+    transition: filter .6s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+  }
+  .work-card:hover img { filter: none; transform: scale(1); }
+  @media (hover: none) { .work-card img { filter: none; transform: none; } }
+  .work-card span {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 12px;
+    border-radius: 100px;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s ease, transform 1s cubic-bezier(.16, 1, .3, 1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- TABLET ---------- */
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .hero-top { grid-template-columns: 1fr; }
+    .services-head { grid-template-columns: 1fr; gap: 40px; }
+    .services-title { font-size: 52px; }
+  }
+
+  /* ---------- MOBILNI (pod 360px) ---------- */
+  @media (max-width: 768px) {
+    :root { --gutter: 20px; --nav-h: 64px; }
+    .nav-right .lang, .nav-right .btn { display: none; }
+    .burger { display: block; }
+    .hero { padding-top: calc(var(--nav-h) + 48px); }
+    .hero-intro { font-size: 16px; }
+    .hero-intro em { font-size: 24px; }
+    .hero-stats { gap: 24px; }
+    .hero-stats strong { font-size: 36px; }
+    .hero-title { margin: 48px 0 24px; }
+    .hero-photo { height: 52%; }
+    .hero-top .hero-intro { text-shadow: 0 0 24px rgba(10,10,10,0.9); }
+    .services { padding: 96px 0 80px; }
+    .services-title { font-size: 36px; }
+    .marquee { margin-top: 56px; }
+    .marquee-track { gap: 16px; animation-duration: 40s; }
+    @keyframes marquee { to { transform: translateX(calc(-50% - 8px)); } }
+    .work-card { width: 280px; }
+    .work-card span { left: 12px; bottom: 12px; font-size: 10px; padding: 4px 8px; }
+    .hero-bottom .tagline { max-width: 160px; line-height: 1.6; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .hero-title .fit { transform: none; }
+    .fade-in { opacity: 1; }
+    .hero-photo { opacity: 1; transform: translateX(-50%); }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGACIJA -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo">Luka Rakić<span>.</span></a>
+
+  <nav class="nav-links">
+    <a href="#projekti" data-i18n="navProjects">Projekti</a>
+    <a href="#o-meni" data-i18n="navAbout">O meni</a>
+    <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+  </nav>
+
+  <div class="nav-right">
+    <div class="lang">
+      <button type="button" data-lang="sr" aria-pressed="true">SR</button>
+      <span class="sep"></span>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a href="mailto:rakicluka.design@gmail.com" class="btn"><span class="dot"></span><span data-i18n="cta">Hajde da pričamo</span></a>
+    <button type="button" class="burger" id="burger" aria-label="Meni"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="#projekti" data-i18n="navProjects">Projekti</a>
+    <a href="#o-meni" data-i18n="navAbout">O meni</a>
+    <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+  </nav>
+  <div class="lang">
+    <button type="button" data-lang="sr" aria-pressed="true">SR</button>
+    <span class="sep"></span>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="hero-photo" src="luka-hero.webp" alt="Luka Rakić, web dizajner" width="1344" height="1715" fetchpriority="high">
+  <div class="hero-top fade-in">
+    <div>
+      <span class="label" data-i18n="heroLabel">[ Web dizajn &amp; development ]</span>
+      <p class="hero-intro" data-i18n="heroIntro"><em>Ćao, ja sam Luka.</em><br>Pravim sajtove i online prodavnice za restorane, kafiće i pržionice koje žele da budu primećene.</p>
+    </div>
+    <ul class="hero-stats">
+      <li><strong>2022</strong><span data-i18n="stat1">Dizajn od</span></li>
+      <li><strong>02</strong><span data-i18n="stat2">Nove franšize za klijenta</span></li>
+    </ul>
+  </div>
+
+  <h1 class="hero-title" id="heroTitle">
+    <span class="row"><span class="fit" data-i18n="heroLine1">Sajtovi za</span></span>
+    <span class="row"><span class="fit" data-i18n="heroLine2">Ugostitelje</span></span>
+  </h1>
+
+  <div class="hero-bottom fade-in">
+    <span class="tagline" data-i18n="tagline">Čisto. Jasno. Precizno.</span>
+    <span class="scroll"><span data-i18n="scroll">Skroluj</span><span class="track"></span></span>
+  </div>
+</section>
+
+<!-- ŠTA RADIM -->
+<section class="services" id="sta-radim">
+  <div class="services-head">
+    <div class="reveal">
+      <span class="label" data-i18n="servLabel">[ Šta radim ]</span>
+      <h2 class="services-title" data-i18n="servTitle">Sajtovi za restorane, kafiće i pržionice, napravljeni da dovedu <em>goste, ljude i partnere.</em></h2>
+    </div>
+    <p class="services-note reveal" data-i18n="servNote"><strong>Od ideje do živog sajta.</strong>Dizajn u Figmi, izrada u Webflow-u, Shopify-u ili u kodu. Jedna osoba, ceo proces.</p>
+  </div>
+
+  <div class="marquee" aria-label="Radovi">
+    <div class="marquee-track" id="marqueeTrack">
+      <figure class="work-card"><img src="img/popy-hero.webp" alt="Popy Coffee Family, početna stranica" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+      <figure class="work-card"><img src="img/terrazza-hero.webp" alt="Terrazza, početna stranica" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
+      <figure class="work-card"><img src="img/popy-lokacije.webp" alt="Popy Coffee Family, lokacije" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+      <figure class="work-card"><img src="img/terrazza-jela.webp" alt="Terrazza, istaknuta jela" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
+      <figure class="work-card"><img src="img/popy-meni.webp" alt="Popy Coffee Family, meni" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+      <figure class="work-card"><img src="img/terrazza-prostor.webp" alt="Terrazza, prostor" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
+      <figure class="work-card"><img src="img/popy-merch.webp" alt="Popy Coffee Family, merč" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+      <figure class="work-card"><img src="img/terrazza-onama.webp" alt="Terrazza, o nama" loading="lazy" width="800" height="500"><span>Terrazza</span></figure>
+      <figure class="work-card"><img src="img/popy-karijera.webp" alt="Popy Coffee Family, karijera" loading="lazy" width="800" height="500"><span>Popy Coffee</span></figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  const dict = {
+    sr: {
+      title: "Luka Rakić | Sajtovi za ugostitelje",
+      navProjects: "Projekti",
+      navAbout: "O meni",
+      navContact: "Kontakt",
+      cta: "Hajde da pričamo",
+      heroLabel: "[ Web dizajn &amp; development ]",
+      heroIntro: "<em>Ćao, ja sam Luka.</em><br>Pravim sajtove i online prodavnice za restorane, kafiće i pržionice koje žele da budu primećene.",
+      stat1: "Dizajn od",
+      stat2: "Nove franšize za klijenta",
+      heroLine1: "Sajtovi za",
+      heroLine2: "Ugostitelje",
+      tagline: "Čisto. Jasno. Precizno.",
+      scroll: "Skroluj",
+      servLabel: "[ Šta radim ]",
+      servTitle: "Sajtovi za restorane, kafiće i pržionice, napravljeni da dovedu <em>goste, ljude i partnere.</em>",
+      servNote: "<strong>Od ideje do živog sajta.</strong>Dizajn u Figmi, izrada u Webflow-u, Shopify-u ili u kodu. Jedna osoba, ceo proces."
+    },
+    en: {
+      title: "Luka Rakić | Websites for hospitality",
+      navProjects: "Projects",
+      navAbout: "About",
+      navContact: "Contact",
+      cta: "Let's talk",
+      heroLabel: "[ Web design &amp; development ]",
+      heroIntro: "<em>Hi, I'm Luka.</em><br>I design websites and online stores for restaurants, cafés and roasteries that want to stand out.",
+      stat1: "Designing since",
+      stat2: "New franchises for a client",
+      heroLine1: "Websites for",
+      heroLine2: "Hospitality",
+      tagline: "Clean. Clear. Precise.",
+      scroll: "Scroll",
+      servLabel: "[ What I do ]",
+      servTitle: "Websites for restaurants, cafés and roasteries, built to bring in <em>guests, staff and partners.</em>",
+      servNote: "<strong>From idea to live website.</strong>Designed in Figma, built in Webflow, Shopify or code. One person, the whole process."
+    }
+  };
+
+  const title = document.getElementById("heroTitle");
+  const heroTop = document.querySelector(".hero-top");
+  const heroBottom = document.querySelector(".hero-bottom");
+
+  // Naslov se razvlači na punu širinu, ali nikad ne izlazi ispod prvog ekrana
+  function fitTitle() {
+    const target = title.clientWidth;
+    const css = getComputedStyle(title);
+    const hero = getComputedStyle(title.parentElement);
+    const used = parseFloat(hero.paddingTop) + parseFloat(hero.paddingBottom)
+      + heroTop.offsetHeight + heroBottom.offsetHeight
+      + parseFloat(css.marginTop) + parseFloat(css.marginBottom);
+    const lines = title.querySelectorAll(".fit");
+    const cap = window.innerWidth > 768
+      ? (window.innerHeight - used) / (lines.length * 0.9)
+      : Infinity;
+
+    lines.forEach(el => {
+      el.style.fontSize = "100px";
+      const natural = el.getBoundingClientRect().width;
+      const size = Math.min(100 * target / natural, Math.max(cap, 96));
+      el.style.fontSize = size + "px";
+    });
+  }
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.title = dict[lang].title;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const value = dict[lang][el.dataset.i18n];
+      if (value !== undefined) el.innerHTML = value;
+    });
+    document.querySelectorAll("[data-lang]").forEach(btn => {
+      btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+    });
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+    fitTitle();
+  }
+
+  document.querySelectorAll("[data-lang]").forEach(btn => {
+    btn.addEventListener("click", () => setLang(btn.dataset.lang));
+  });
+
+  // Mobilni meni
+  const nav = document.getElementById("nav");
+  const menu = document.getElementById("mobileMenu");
+  document.getElementById("burger").addEventListener("click", () => {
+    nav.classList.toggle("open");
+    menu.classList.toggle("open");
+  });
+  menu.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menu.classList.remove("open");
+  }));
+
+  // Početni jezik
+  let saved = "sr";
+  try { saved = localStorage.getItem("lang") || "sr"; } catch (e) {}
+  setLang(saved);
+
+  // Traka radova: dupliramo kartice za beskonačan krug
+  const track = document.getElementById("marqueeTrack");
+  [...track.children].forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  });
+
+  // Pojavljivanje sekcija pri skrolu
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.2 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  window.addEventListener("resize", fitTitle);
+  if (document.fonts) document.fonts.ready.then(fitTitle);
+</script>
+</body>
+</html>
