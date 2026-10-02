@@ -826,17 +826,18 @@
 
     /* RAZMACI NA MOBILNOM
        --G: čip -> naslov (vidljiv razmak).
-       --T: naslov -> tekst ispod, svuda isti, 24px. */
-    :root { --G: 24px; --T: 24px; }
+       --T: glavni naslov sekcije -> tekst ispod, 24px.
+       --t: naslov u kartici -> tekst u kartici, 12px. */
+    :root { --G: 24px; --T: 24px; --t: 12px; }
     .services-head, .projects-head, .process-head, .about-grid { gap: 0; }
     .projects-title, .process-title, .cta-title,
     .services-title, .about-lead { margin-bottom: var(--T); }
     .cta-sub { margin-top: 0; }
     .benefits li { gap: 0; }
     .benefits .n { margin-bottom: 16px !important; }
-    .benefits h3, .steps h3 { margin-bottom: var(--T); }
-    .project-name { line-height: 1; margin-bottom: var(--T) !important; }
-    .case li { row-gap: var(--T) !important; }
+    .benefits h3, .steps h3 { margin-bottom: var(--t); }
+    .project-name { line-height: 1; margin-bottom: var(--t) !important; }
+    .case li { row-gap: var(--t) !important; }
     .nav-right .lang, .nav-right .btn { display: none; }
     .burger { display: block; }
     .hero {
