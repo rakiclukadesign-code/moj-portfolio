@@ -580,6 +580,12 @@
     border: 1px solid var(--line);
   }
   .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-photo figure.is-empty {
+    background:
+      radial-gradient(80% 80% at 70% 20%, rgba(201,168,106,0.08), transparent 70%),
+      repeating-linear-gradient(135deg, rgba(242,239,234,0.02) 0 1px, transparent 1px 12px),
+      var(--bg-2);
+  }
   .about-photo figcaption {
     position: absolute;
     left: 20px; right: 20px; bottom: 20px;
@@ -872,8 +878,8 @@
 <section class="about" id="o-meni">
   <div class="about-grid">
     <div class="about-photo reveal">
-      <figure>
-        <img src="luka-about.webp" alt="Luka Rakić" loading="lazy" width="1200" height="1500">
+      <!-- Ovde ide slika: <img src="luka-about.webp" alt="Luka Rakić" loading="lazy" width="1200" height="1500">; obriši klasu is-empty -->
+      <figure class="is-empty">
         <figcaption><span><span class="dot"></span><span data-i18n="aboutAvail">Slobodan za nove projekte</span></span><span>Beograd</span></figcaption>
       </figure>
       <div class="about-socials">
