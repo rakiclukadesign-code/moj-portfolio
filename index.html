@@ -43,6 +43,13 @@
   button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
   section[id] { scroll-margin-top: var(--nav-h); }
 
+
+  /* Wrapper: desktop 1272px, mobilni 360px */
+  .wrap { width: min(100% - 80px, 1272px); margin: 0 auto; }
+
+  /* Sve sekcije osim hera: 160px gore i dole */
+  .services, .projects, .process, .testimonials, .about, .cta { padding: 160px 0; }
+
   /* Bez jedne reči u poslednjem redu */
   p, li, blockquote, figcaption { text-wrap: pretty; }
   h1, h2, h3, h4, .project-desc, .footer-tag { text-wrap: balance; }
@@ -322,10 +329,7 @@
   @keyframes fade { to { opacity: 1; } }
 
   /* ---------- ŠTA RADIM ---------- */
-  .services {
-    padding: 160px var(--gutter) 120px;
-    border-top: 1px solid var(--line);
-  }
+  .services { border-top: 1px solid var(--line); }
   .services-head {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 360px;
@@ -373,7 +377,7 @@
   .benefits p { color: var(--muted); line-height: 1.6; }
 
   /* ---------- IZDVOJENI PROJEKTI ---------- */
-  .projects { padding: 120px var(--gutter) 160px; border-top: 1px solid var(--line); }
+  .projects { border-top: 1px solid var(--line); }
   .projects-head {
     display: flex;
     justify-content: space-between;
@@ -490,7 +494,7 @@
   .project-media img, .project-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* ---------- KAKO RADIM ---------- */
-  .process { padding: 160px var(--gutter); border-top: 1px solid var(--line); }
+  .process { border-top: 1px solid var(--line); }
   .process-head { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 80px; align-items: end; margin-bottom: 80px; }
   .process-title {
     font-family: var(--font-display);
@@ -524,7 +528,7 @@
   .steps p { color: var(--muted); line-height: 1.6; }
 
   /* ---------- UTISCI KLIJENATA ---------- */
-  .testimonials { padding: 160px var(--gutter); border-top: 1px solid var(--line); }
+  .testimonials { border-top: 1px solid var(--line); }
   .testimonials[hidden] { display: none; }
   .t-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 48px; }
   .t-card {
@@ -556,7 +560,7 @@
   .t-person span { font-size: 14px; color: var(--muted); }
 
   /* ---------- O MENI ---------- */
-  .about { padding: 160px var(--gutter); border-top: 1px solid var(--line); }
+  .about { border-top: 1px solid var(--line); }
   .about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 96px; align-items: start; }
   .about-lead {
     font-family: var(--font-serif);
@@ -591,7 +595,6 @@
   /* ---------- CTA / KONTAKT ---------- */
   .cta {
     position: relative;
-    padding: 160px var(--gutter) 120px;
     border-top: 1px solid var(--line);
     overflow: hidden;
     isolation: isolate;
@@ -652,7 +655,7 @@
   .copy-mail small { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
 
   /* ---------- FOOTER ---------- */
-  .footer { padding: 80px var(--gutter) 32px; border-top: 1px solid var(--line); }
+  .footer { padding: 80px 0 32px; border-top: 1px solid var(--line); }
   .footer-cols {
     display: grid;
     grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
@@ -720,9 +723,15 @@
   /* ---------- MOBILNI (od 360px) ---------- */
   @media (max-width: 768px) {
     :root { --gutter: 20px; --nav-h: 64px; }
+    .wrap { width: min(100% - 40px, 360px); }
+    .services, .projects, .process, .testimonials, .about, .cta { padding: 96px 0; }
+    .footer { padding: 64px 0 32px; }
+    .hero-stats, .hero-bottom > span { display: none; }
     .nav-right .lang, .nav-right .btn { display: none; }
     .burger { display: block; }
-    .hero { padding-top: calc(var(--nav-h) + 48px); }
+    .hero {
+      padding: calc(var(--nav-h) + 40px) max(20px, calc((100% - 360px) / 2)) 32px;
+    }
     .hero-intro { font-size: 16px; text-shadow: 0 0 24px rgba(10,10,10,0.9); }
     .hero-actions { margin-top: 24px; }
     .hero-actions a { flex: 1 1 100%; justify-content: space-between; }
@@ -730,17 +739,17 @@
     .hero-stats { gap: 24px; }
     .hero-stats strong { font-size: 36px; }
     .hero-title { margin: 48px 0 24px; }
-    .hero-title .fit { white-space: normal; font-size: 14vw !important; }
+    .hero-title .fit { white-space: normal; font-size: min(14vw, 56px) !important; }
     .hero-title .row:nth-child(2) { text-align: left; }
     .hero-photo { height: 52%; }
     .hero-bottom { flex-direction: column; align-items: flex-start; gap: 8px; line-height: 1.6; }
-    .services { padding: 96px var(--gutter) 80px; }
+
     .services-title { font-size: 36px; }
     .benefits { grid-template-columns: 1fr; margin-top: 56px; }
     .benefits li { padding: 24px 20px; }
     .benefits .n { margin-bottom: 8px; }
     .benefits h3 { font-size: 24px; }
-    .projects { padding: 80px var(--gutter) 96px; }
+
     .projects-head { margin-bottom: 48px; }
     .project, .project:nth-child(2), .project:nth-child(3) { position: relative; top: 0; padding: 24px 20px; border-radius: 16px; gap: 32px; }
     .project-info { gap: 24px; }
@@ -748,7 +757,7 @@
     .project-desc { font-size: 24px; }
     .case li { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
     .case p { font-size: 16px; }
-    .process, .testimonials, .about { padding: 96px var(--gutter); }
+
     .process-head { margin-bottom: 48px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
     .steps li { padding: 32px 0 0; }
@@ -760,13 +769,13 @@
     .about-lead { font-size: 36px; }
     .about-text p { font-size: 16px; }
     .about-socials { flex-direction: column; }
-    .cta { padding: 96px var(--gutter) 80px; }
+
     .cta-title { margin-bottom: 24px; }
     .cta-sub { font-size: 16px; margin-bottom: 32px; }
     .cta-row { flex-direction: column; align-items: stretch; }
     .btn-gold, .copy-mail { justify-content: space-between; height: 56px; padding: 0 24px; }
     .copy-mail { font-size: 14px; }
-    .footer { padding-top: 64px; }
+
     .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px 24px; padding-bottom: 56px; }
     .footer-cols > :last-child { grid-column: 1 / -1; }
     .footer-tag { font-size: 24px; }
@@ -852,6 +861,7 @@
 
 <!-- ŠTA RADIM -->
 <section class="services" id="sta-radim">
+<div class="wrap">
   <div class="services-head">
     <div class="reveal">
       <span class="label" data-i18n="servLabel">[ Šta radim ]</span>
@@ -882,10 +892,12 @@
       <p data-i18n="b4">Ljudi vas traže sa telefona, zato sajt prvo pravim za mali ekran pa tek onda za računar.</p>
     </li>
   </ul>
+</div>
 </section>
 
 <!-- IZDVOJENI PROJEKTI -->
 <section class="projects" id="projekti">
+<div class="wrap">
   <div class="projects-head">
     <div class="reveal">
       <span class="label" data-i18n="projLabel">[ Studije slučaja ]</span>
@@ -969,10 +981,12 @@
       <div class="project-media"><img src="img/bad.webp" alt="BAD Coffee Company prodavnica" loading="lazy"></div> -->
     </article>
   </div>
+</div>
 </section>
 
 <!-- KAKO RADIM -->
 <section class="process" id="proces">
+<div class="wrap">
   <div class="process-head">
     <div class="reveal">
       <span class="label" data-i18n="procLabel">[ Kako radim ]</span>
@@ -1002,17 +1016,21 @@
       <p data-i18n="p4">Postavljam sajt, povezujem domen i ostajem tu za izmene i održavanje.</p>
     </li>
   </ol>
+</div>
 </section>
 
 <!-- UTISCI KLIJENATA: sekcija se sama prikazuje čim u skripti dole upišeš bar jednu pravu izjavu -->
 <section class="testimonials" id="utisci" hidden>
+<div class="wrap">
   <span class="label reveal" data-i18n="tLabel">[ Utisci klijenata ]</span>
   <h2 class="process-title reveal" data-i18n="tTitle">Šta kažu <span>klijenti.</span></h2>
   <div class="t-list" id="tList"></div>
+</div>
 </section>
 
 <!-- O MENI -->
 <section class="about" id="o-meni">
+<div class="wrap">
   <div class="about-grid">
     <div class="reveal">
       <span class="label" data-i18n="aboutLabel">[ O meni ]</span>
@@ -1043,10 +1061,12 @@
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- CTA / KONTAKT -->
 <section class="cta" id="kontakt">
+<div class="wrap">
   <span class="label reveal" data-i18n="ctaLabel">[ Kontakt ]</span>
   <h2 class="cta-title reveal" data-i18n="ctaTitle">Planirate novi sajt <em>ili redizajn?</em></h2>
   <p class="cta-sub reveal" data-i18n="ctaSub">Pošaljite mi link do trenutnog sajta i nekoliko rečenica o vašem brendu i projektu. Javiću vam se sa idejama i sledećim korakom.</p>
@@ -1054,10 +1074,12 @@
     <a class="btn-gold" id="mailBtn" href="mailto:rakicluka.design@gmail.com"><span data-i18n="ctaBtn">Pošaljite upit</span><span>→</span></a>
     <button type="button" class="copy-mail" id="copyMail">rakicluka.design@gmail.com <small data-i18n="copy">Kopiraj</small></button>
   </div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
+<div class="wrap">
   <div class="footer-cols">
     <p class="footer-tag" data-i18n="footTag">Web sajtovi za brendove <em>sa karakterom.</em></p>
     <div class="footer-col">
@@ -1093,6 +1115,7 @@
     <span data-i18n="tagline">Čisto. Jasno. Precizno.</span>
     <a href="#top" data-i18n="backTop">Nazad na vrh ↑</a>
   </div>
+</div>
 </footer>
 
 <script>
