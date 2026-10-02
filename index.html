@@ -3,8 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luka Rakić | Web sajtovi za brendove sa karakterom</title>
-<meta name="description" content="Dizajn i development web sajtova za hospitality i lifestyle brendove. Najviše radim sa restoranima, kafićima i pržionicama.">
+<!-- =========================================================
+     SEO
+     Kad kupiš domen, zameni https://TVOJ-DOMEN.rs svuda u ovom fajlu
+     (i u robots.txt i sitemap.xml) pravom adresom sajta.
+     ========================================================= -->
+<title>Luka Rakić | Web dizajn i izrada sajtova</title>
+<meta name="description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
+<meta name="author" content="Luka Rakić">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://TVOJ-DOMEN.rs/">
+<link rel="alternate" hreflang="sr" href="https://TVOJ-DOMEN.rs/">
+<link rel="alternate" hreflang="x-default" href="https://TVOJ-DOMEN.rs/">
+<meta name="theme-color" content="#0A0A0A">
+
+<!-- Deljenje na društvenim mrežama (Facebook, LinkedIn, Viber, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Luka Rakić">
+<meta property="og:title" content="Luka Rakić | Web dizajn i izrada sajtova">
+<meta property="og:description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
+<meta property="og:url" content="https://TVOJ-DOMEN.rs/">
+<meta property="og:image" content="https://TVOJ-DOMEN.rs/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luka Rakić, web sajtovi za brendove sa karakterom">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luka Rakić | Web dizajn i izrada sajtova">
+<meta name="twitter:description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
+<meta name="twitter:image" content="https://TVOJ-DOMEN.rs/og-image.jpg">
+
+<!-- Ikonice -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Brže učitavanje prve slike -->
+<link rel="preload" as="image" href="luka-hero.webp" fetchpriority="high">
+
+<!-- Strukturisani podaci za Google: ko si, šta radiš, gde i kako te kontaktirati -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://TVOJ-DOMEN.rs/#luka",
+      "name": "Luka Rakić",
+      "jobTitle": "Web dizajner i developer",
+      "url": "https://TVOJ-DOMEN.rs/",
+      "image": "https://TVOJ-DOMEN.rs/luka-hero.webp",
+      "email": "mailto:rakicluka.design@gmail.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "RS" },
+      "knowsAbout": ["Web dizajn", "Izrada sajtova", "UI/UX dizajn", "Webflow", "Shopify", "Online prodavnice"],
+      "sameAs": [
+        "https://www.instagram.com/rakicweb/",
+        "https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://TVOJ-DOMEN.rs/#usluga",
+      "name": "Luka Rakić, web dizajn i izrada sajtova",
+      "description": "Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.",
+      "url": "https://TVOJ-DOMEN.rs/",
+      "image": "https://TVOJ-DOMEN.rs/og-image.jpg",
+      "email": "rakicluka.design@gmail.com",
+      "founder": { "@id": "https://TVOJ-DOMEN.rs/#luka" },
+      "address": { "@type": "PostalAddress", "addressCountry": "RS" },
+      "knowsLanguage": ["sr", "en"],
+      "serviceType": ["Web dizajn", "Izrada sajtova", "Izrada online prodavnice", "Redizajn sajta"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://TVOJ-DOMEN.rs/#sajt",
+      "url": "https://TVOJ-DOMEN.rs/",
+      "name": "Luka Rakić",
+      "inLanguage": "sr-RS",
+      "publisher": { "@id": "https://TVOJ-DOMEN.rs/#luka" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,6 +124,9 @@
   a { color: inherit; text-decoration: none; }
   button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
   section[id] { scroll-margin-top: var(--nav-h); }
+  .skip { position: absolute; left: 16px; top: -64px; z-index: 200; padding: 12px 16px; border-radius: 8px; background: var(--gold); color: var(--bg); font-size: 14px; font-weight: 600; }
+  .skip:focus { top: 16px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
 
   /* Wrapper: desktop 1272px, mobilni 360px */
@@ -185,10 +270,11 @@
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity .4s ease;
+    transition: opacity .4s ease, visibility 0s linear .4s;
   }
-  .mobile-menu.open { opacity: 1; pointer-events: auto; }
+  .mobile-menu.open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .4s ease; }
   .mobile-menu nav { display: flex; flex-direction: column; gap: 8px; }
   .mobile-menu nav a {
     font-family: var(--font-display);
@@ -674,7 +760,7 @@
   }
   .footer-tag { font-family: var(--font-serif); font-size: 28px; line-height: 1.25; max-width: 360px; }
   .footer-tag em { font-style: italic; color: var(--gold); }
-  .footer-col h4 {
+  .footer-col .footer-h {
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.16em;
@@ -818,12 +904,13 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 
 <!-- NAVIGACIJA -->
 <header class="nav" id="nav">
-  <a href="#top" class="nav-logo">Luka Rakić<span>.</span></a>
+  <a href="#top" class="nav-logo" aria-label="Luka Rakić, početna">Luka Rakić<span>.</span></a>
 
-  <nav class="nav-links">
+  <nav class="nav-links" aria-label="Glavna navigacija">
     <a href="#projekti" data-i18n="navProjects">Projekti</a>
     <a href="#proces" data-i18n="navProcess">Proces</a>
     <a href="#o-meni" data-i18n="navAbout">O meni</a>
@@ -837,12 +924,12 @@
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
     <a href="#kontakt" class="btn"><span class="dot"></span><span data-i18n="navCta">Pošaljite upit</span></a>
-    <button type="button" class="burger" id="burger" aria-label="Meni"><span></span><span></span></button>
+    <button type="button" class="burger" id="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <nav>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+  <nav aria-label="Mobilna navigacija">
     <a href="#projekti" data-i18n="navProjects">Projekti</a>
     <a href="#proces" data-i18n="navProcess">Proces</a>
     <a href="#o-meni" data-i18n="navAbout">O meni</a>
@@ -855,9 +942,11 @@
   </div>
 </div>
 
+<main id="sadrzaj">
+
 <!-- HERO -->
 <section class="hero" id="top">
-  <img class="hero-photo" src="luka-hero.webp" alt="Luka Rakić, web dizajner" width="949" height="1216" fetchpriority="high">
+  <img class="hero-photo" src="luka-hero.webp" alt="Luka Rakić, web dizajner i developer" width="949" height="1216" fetchpriority="high">
   <div class="hero-top fade-in">
     <div>
       <span class="label" data-i18n="heroLabel">[ Brand / Web dizajn ]</span>
@@ -880,7 +969,7 @@
 
   <div class="hero-bottom fade-in">
     <strong data-i18n="heroBottom">Najviše radim sa restoranima, kafićima, pržionicama i lifestyle brendovima.</strong>
-    <span data-i18n="heroWhere">Beograd · Rad sa klijentima iz cele Srbije</span>
+    <span data-i18n="heroWhere">Rad sa klijentima iz celog regiona</span>
   </div>
 </section>
 
@@ -936,11 +1025,11 @@
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">01</span>
-          <span class="project-client" data-i18n="popyClient">Beograd · Kafeterije</span>
+          <span class="project-client" data-i18n="popyClient">Kafeterije</span>
         </div>
         <div>
           <h3 class="project-name">Popy Coffee Family</h3>
-          <p class="project-desc" data-i18n="popyDesc">Web sajt za lanac kafeterija <em>koji se širi Beogradom.</em></p>
+          <p class="project-desc" data-i18n="popyDesc">Web sajt za lanac kafeterija <em>koji se širi.</em></p>
         </div>
         <div>
           <ul class="tags"><li data-i18n="tagCafes">Kafeterije</li><li data-i18n="tagUi">UI dizajn</li><li>Webflow</li></ul>
@@ -961,7 +1050,7 @@
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">02</span>
-          <span class="project-client" data-i18n="terrazzaClient">Valjevo · Restoran</span>
+          <span class="project-client" data-i18n="terrazzaClient">Restoran</span>
         </div>
         <div>
           <h3 class="project-name">Terrazza</h3>
@@ -985,7 +1074,7 @@
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">03</span>
-          <span class="project-client" data-i18n="badClient">Beograd · Pržionica kafe</span>
+          <span class="project-client" data-i18n="badClient">Pržionica kafe</span>
         </div>
         <div>
           <h3 class="project-name">BAD Coffee Company</h3>
@@ -1088,13 +1177,15 @@
 </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="footer">
 <div class="wrap">
   <div class="footer-cols">
     <p class="footer-tag" data-i18n="footTag">Web sajtovi za brendove <em>sa karakterom.</em></p>
     <div class="footer-col">
-      <h4 data-i18n="footSite">Sajt</h4>
+      <p class="footer-h" data-i18n="footSite">Sajt</p>
       <ul>
         <li><a href="#top" data-i18n="footHome">Početna</a></li>
         <li><a href="#projekti" data-i18n="navProjects">Projekti</a></li>
@@ -1104,17 +1195,16 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="footFollow">Prati</h4>
+      <p class="footer-h" data-i18n="footFollow">Prati</p>
       <ul>
         <li><a href="https://www.instagram.com/rakicweb/" target="_blank" rel="noopener">Instagram ↗</a></li>
         <li><a href="https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="navContact">Kontakt</h4>
+      <p class="footer-h" data-i18n="navContact">Kontakt</p>
       <ul>
         <li><a href="mailto:rakicluka.design@gmail.com">rakicluka.design@gmail.com</a></li>
-        <li><span data-i18n="footCity">Beograd, Srbija</span></li>
       </ul>
     </div>
   </div>
@@ -1139,7 +1229,7 @@
      ========================================================= */
   const testimonials = [
     { name: "", role: "Popy Coffee Family", photo: "", text: { sr: "", en: "" } },
-    { name: "", role: "Terrazza, Valjevo", photo: "", text: { sr: "", en: "" } },
+    { name: "", role: "Terrazza", photo: "", text: { sr: "", en: "" } },
     { name: "Novak", role: "BAD Coffee Company", photo: "", text: { sr: "", en: "" } }
   ];
 
@@ -1151,7 +1241,7 @@
 
   const dict = {
     sr: {
-      title: "Luka Rakić | Web sajtovi za brendove sa karakterom",
+      title: "Luka Rakić | Web dizajn i izrada sajtova",
       navProjects: "Projekti", navProcess: "Proces", navAbout: "O meni", navContact: "Kontakt",
       navCta: "Pošaljite upit",
       heroLabel: "[ Brand / Web dizajn ]",
@@ -1160,7 +1250,7 @@
       stat1: "Dizajn od", stat2: "Nove franšize za klijenta",
       heroLine1: "Web sajtovi za brendove", heroLine2: "sa karakterom.",
       heroBottom: "Najviše radim sa restoranima, kafićima, pržionicama i lifestyle brendovima.",
-      heroWhere: "Beograd · Rad sa klijentima iz cele Srbije",
+      heroWhere: "Rad sa klijentima iz celog regiona",
       servLabel: "[ Šta radim ]",
       servTitle: "Sajtovi za brendove kojima je važno kako izgledaju, kako komuniciraju <em>i kako ih ljudi doživljavaju online.</em>",
       servNote: "<strong>Jedna osoba, ceo proces.</strong>Od prve ideje do objavljenog sajta: dizajn, development i sve između. Bez prebacivanja projekta između dizajnera, developera i agencije.",
@@ -1172,17 +1262,17 @@
       projTitle: "Izdvojeni <span>radovi.</span>",
       projIntro: "Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio.",
       caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat",
-      popyClient: "Beograd · Kafeterije",
-      popyDesc: "Web sajt za lanac kafeterija <em>koji se širi Beogradom.</em>",
+      popyClient: "Kafeterije",
+      popyDesc: "Web sajt za lanac kafeterija <em>koji se širi.</em>",
       popyTask: "Lancu koji raste trebao je jedan sajt koji istovremeno govori gostima, budućim zaposlenima i potencijalnim partnerima.",
       popyDone: "Meni po kategorijama, sve lokacije sa radnim vremenom i mapom, prijava za posao, forma za franšizu i merč, sve na jednoj stranici.",
       popyResult: "Prijave za posao i upiti za franšizu sada stižu direktno preko sajta.",
-      terrazzaClient: "Valjevo · Restoran",
+      terrazzaClient: "Restoran",
       terrazzaDesc: "Premium vizuelni identitet koji oslikava kvalitet restorana, <em>olakšava rezervacije i ostavlja utisak.</em>",
       terrazzaTask: "Restoranu italijanske i srpske kuhinje trebao je sajt koji prenosi premium atmosferu, a zadržava domaću toplinu.",
       terrazzaDone: "Tamna, elegantna tema podređena fotografijama prostora, tri istaknuta specijaliteta, rezervacija stola i srpska i engleska verzija za strane goste.",
       terrazzaResult: "Gost za par sekundi vidi atmosferu, specijalitete kuće i kako da rezerviše sto.",
-      badClient: "Beograd · Pržionica kafe",
+      badClient: "Pržionica kafe",
       badTask: "Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.",
       badDone: "Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.",
       badResult: "Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.",
@@ -1207,12 +1297,12 @@
       ctaBtn: "Pošaljite upit",
       copy: "Kopiraj", copied: "Kopirano",
       footTag: "Web sajtovi za brendove <em>sa karakterom.</em>",
-      footSite: "Sajt", footHome: "Početna", footFollow: "Prati", footCity: "Beograd, Srbija",
+      footSite: "Sajt", footHome: "Početna", footFollow: "Prati",
       tagline: "Čisto. Jasno. Precizno.",
       backTop: "Nazad na vrh ↑"
     },
     en: {
-      title: "Luka Rakić | Websites for brands with character",
+      title: "Luka Rakić | Web design and development",
       navProjects: "Projects", navProcess: "Process", navAbout: "About", navContact: "Contact",
       navCta: "Send an inquiry",
       heroLabel: "[ Brand / Web design ]",
@@ -1221,7 +1311,7 @@
       stat1: "Designing since", stat2: "New franchises for a client",
       heroLine1: "Websites for brands", heroLine2: "with character.",
       heroBottom: "I mostly work with restaurants, cafés, roasteries and lifestyle brands.",
-      heroWhere: "Belgrade · Working with clients across Serbia",
+      heroWhere: "Working with clients across the region",
       servLabel: "[ What I do ]",
       servTitle: "Websites for brands that care how they look, how they communicate <em>and how people experience them online.</em>",
       servNote: "<strong>One person, the whole process.</strong>From the first idea to a published website: design, development and everything in between. No handing the project between a designer, a developer and an agency.",
@@ -1233,17 +1323,17 @@
       projTitle: "Featured <span>work.</span>",
       projIntro: "Selected work. For each one: what the client needed, what I did and what they got.",
       caseTask: "The brief", caseDone: "What I did", caseResult: "The result",
-      popyClient: "Belgrade · Cafés",
-      popyDesc: "A website for a café chain <em>growing across Belgrade.</em>",
+      popyClient: "Cafés",
+      popyDesc: "A website for a café chain <em>that keeps growing.</em>",
       popyTask: "A growing chain needed one website that speaks to guests, future staff and potential partners at the same time.",
       popyDone: "Menu by category, every location with hours and map, job applications, a franchise form and merch, all on one page.",
       popyResult: "Job applications and franchise inquiries now come in directly through the website.",
-      terrazzaClient: "Valjevo · Restaurant",
+      terrazzaClient: "Restaurant",
       terrazzaDesc: "A premium visual identity that reflects the restaurant's quality, <em>makes booking easy and leaves an impression.</em>",
       terrazzaTask: "An Italian and Serbian restaurant needed a website that conveys a premium atmosphere while keeping a warm, homely feel.",
       terrazzaDone: "A dark, elegant theme built around photos of the space, three signature dishes, table booking and Serbian and English versions for foreign guests.",
       terrazzaResult: "In seconds, guests see the atmosphere, the house specialties and how to book a table.",
-      badClient: "Belgrade · Coffee roastery",
+      badClient: "Coffee roastery",
       badTask: "A new roastery needed an online store that carries the brand's bold character and makes buying coffee easy.",
       badDone: "A Shopify store designed around the brand, coffees listed with origin and weight, and the story of the roastery and the roasting process.",
       badResult: "A store ready for launch: customers pick a coffee and check out in a few clicks, and the brand has a voice of its own.",
@@ -1268,7 +1358,7 @@
       ctaBtn: "Send an inquiry",
       copy: "Copy", copied: "Copied",
       footTag: "Websites for brands <em>with character.</em>",
-      footSite: "Site", footHome: "Home", footFollow: "Follow", footCity: "Belgrade, Serbia",
+      footSite: "Site", footHome: "Home", footFollow: "Follow",
       tagline: "Clean. Clear. Precise.",
       backTop: "Back to top ↑"
     }
@@ -1389,14 +1479,16 @@
   // Mobilni meni
   const nav = document.getElementById("nav");
   const menu = document.getElementById("mobileMenu");
-  document.getElementById("burger").addEventListener("click", () => {
-    nav.classList.toggle("open");
-    menu.classList.toggle("open");
-  });
-  menu.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menu.classList.remove("open");
-  }));
+  const burger = document.getElementById("burger");
+  function toggleMenu(open) {
+    nav.classList.toggle("open", open);
+    menu.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+    menu.inert = !open;
+  }
+  burger.addEventListener("click", () => toggleMenu(!menu.classList.contains("open")));
+  menu.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
 
   // Početni jezik
   let saved = "sr";
