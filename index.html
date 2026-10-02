@@ -4,17 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- =========================================================
-     SEO
-     Kad kupiš domen, zameni https://TVOJ-DOMEN.rs svuda u ovom fajlu
-     (i u robots.txt i sitemap.xml) pravom adresom sajta.
+     SEO  (domen: https://rakicdsgn.com)
      ========================================================= -->
 <title>Luka Rakić | Web dizajn i izrada sajtova</title>
 <meta name="description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
 <meta name="author" content="Luka Rakić">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://TVOJ-DOMEN.rs/">
-<link rel="alternate" hreflang="sr" href="https://TVOJ-DOMEN.rs/">
-<link rel="alternate" hreflang="x-default" href="https://TVOJ-DOMEN.rs/">
+<link rel="canonical" href="https://rakicdsgn.com/">
+<link rel="alternate" hreflang="sr" href="https://rakicdsgn.com/">
+<link rel="alternate" hreflang="x-default" href="https://rakicdsgn.com/">
 <meta name="theme-color" content="#0A0A0A">
 
 <!-- Deljenje na društvenim mrežama (Facebook, LinkedIn, Viber, WhatsApp) -->
@@ -24,15 +22,15 @@
 <meta property="og:site_name" content="Luka Rakić">
 <meta property="og:title" content="Luka Rakić | Web dizajn i izrada sajtova">
 <meta property="og:description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
-<meta property="og:url" content="https://TVOJ-DOMEN.rs/">
-<meta property="og:image" content="https://TVOJ-DOMEN.rs/og-image.jpg">
+<meta property="og:url" content="https://rakicdsgn.com/">
+<meta property="og:image" content="https://rakicdsgn.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Luka Rakić, web sajtovi za brendove sa karakterom">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Luka Rakić | Web dizajn i izrada sajtova">
 <meta name="twitter:description" content="Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.">
-<meta name="twitter:image" content="https://TVOJ-DOMEN.rs/og-image.jpg">
+<meta name="twitter:image" content="https://rakicdsgn.com/og-image.jpg">
 
 <!-- Ikonice -->
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -50,11 +48,11 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://TVOJ-DOMEN.rs/#luka",
+      "@id": "https://rakicdsgn.com/#luka",
       "name": "Luka Rakić",
       "jobTitle": "Web dizajner i developer",
-      "url": "https://TVOJ-DOMEN.rs/",
-      "image": "https://TVOJ-DOMEN.rs/luka-hero.webp",
+      "url": "https://rakicdsgn.com/",
+      "image": "https://rakicdsgn.com/luka-hero.webp",
       "email": "mailto:rakicluka.design@gmail.com",
       "address": { "@type": "PostalAddress", "addressCountry": "RS" },
       "knowsAbout": ["Web dizajn", "Izrada sajtova", "UI/UX dizajn", "Webflow", "Shopify", "Online prodavnice"],
@@ -65,24 +63,24 @@
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://TVOJ-DOMEN.rs/#usluga",
+      "@id": "https://rakicdsgn.com/#usluga",
       "name": "Luka Rakić, web dizajn i izrada sajtova",
       "description": "Web dizajn i izrada sajtova za brendove sa karakterom. Sajtovi za restorane, kafiće, pržionice i lifestyle brendove.",
-      "url": "https://TVOJ-DOMEN.rs/",
-      "image": "https://TVOJ-DOMEN.rs/og-image.jpg",
+      "url": "https://rakicdsgn.com/",
+      "image": "https://rakicdsgn.com/og-image.jpg",
       "email": "rakicluka.design@gmail.com",
-      "founder": { "@id": "https://TVOJ-DOMEN.rs/#luka" },
+      "founder": { "@id": "https://rakicdsgn.com/#luka" },
       "address": { "@type": "PostalAddress", "addressCountry": "RS" },
       "knowsLanguage": ["sr", "en"],
       "serviceType": ["Web dizajn", "Izrada sajtova", "Izrada online prodavnice", "Redizajn sajta"]
     },
     {
       "@type": "WebSite",
-      "@id": "https://TVOJ-DOMEN.rs/#sajt",
-      "url": "https://TVOJ-DOMEN.rs/",
+      "@id": "https://rakicdsgn.com/#sajt",
+      "url": "https://rakicdsgn.com/",
       "name": "Luka Rakić",
       "inLanguage": "sr-RS",
-      "publisher": { "@id": "https://TVOJ-DOMEN.rs/#luka" }
+      "publisher": { "@id": "https://rakicdsgn.com/#luka" }
     }
   ]
 }
@@ -564,6 +562,28 @@
   }
   .project-link:hover .arrow { background: var(--gold); border-color: var(--gold); color: var(--bg); transform: rotate(-45deg); }
 
+  .repeat {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 100px;
+    background: rgba(201, 168, 106, 0.06);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text);
+    transition: border-color .3s ease, background .3s ease;
+  }
+  .repeat:hover { border-color: var(--gold); background: rgba(201, 168, 106, 0.12); }
+  .repeat-dot {
+    flex: 0 0 auto;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px var(--gold-dim);
+  }
   .case { list-style: none; border-top: 1px solid var(--line); align-self: center; }
   .case li {
     display: grid;
@@ -652,6 +672,10 @@
     color: var(--gold);
     margin-bottom: 16px;
   }
+  .t-list.is-single { grid-template-columns: 1fr; }
+  .t-list.is-single .t-card { padding: 64px 64px 48px; gap: 56px; }
+  .t-list.is-single blockquote { font-size: 44px; line-height: 1.2; max-width: 1040px; }
+  .t-list.is-single blockquote::before { font-size: 120px; margin-bottom: 24px; }
   .t-person { display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); }
   .t-person img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--bg-3); }
   .t-person strong { display: block; font-weight: 500; }
@@ -838,6 +862,8 @@
     .benefits h3, .steps h3 { margin-bottom: var(--t); }
     .project-name { line-height: 1; margin-bottom: var(--t) !important; }
     .case li { row-gap: var(--t) !important; }
+    .repeat { border-radius: 12px; align-items: flex-start; }
+    .repeat-dot { margin-top: 5px; }
     .nav-right .lang, .nav-right .btn { display: none; }
     .burger { display: block; }
     .hero {
@@ -877,6 +903,9 @@
     .t-list { grid-template-columns: 1fr; }
     .t-card { padding: 32px 20px 24px; }
     .t-card blockquote { font-size: 24px; }
+    .t-list.is-single .t-card { padding: 32px 20px 24px; gap: 32px; }
+    .t-list.is-single blockquote { font-size: 28px; }
+    .t-list.is-single blockquote::before { font-size: 80px; margin-bottom: 16px; }
     .about-lead { font-size: 36px; }
     .about-text p { font-size: 16px; }
     .about-socials { flex-direction: column; }
@@ -1017,11 +1046,11 @@
       <span class="label" data-i18n="projLabel">[ Studije slučaja ]</span>
       <h2 class="projects-title" data-i18n="projTitle">Izdvojeni <span>radovi.</span></h2>
     </div>
-    <p class="projects-intro reveal" data-i18n="projIntro">Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio.</p>
+    <p class="projects-intro reveal" data-i18n="projIntro">Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio. Dva su za istog klijenta, koji se vratio posle prvog projekta.</p>
   </div>
 
   <div class="project-list">
-    <article class="project">
+    <article class="project" id="popy">
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">01</span>
@@ -1032,6 +1061,7 @@
           <p class="project-desc" data-i18n="popyDesc">Web sajt za lanac kafeterija <em>koji se širi.</em></p>
         </div>
         <div>
+          <a class="repeat" href="#bad"><span class="repeat-dot"></span><span data-i18n="popyRepeat">Klijent se vratio za drugi projekat: BAD Coffee Company ↓</span></a>
           <ul class="tags"><li data-i18n="tagCafes">Kafeterije</li><li data-i18n="tagUi">UI dizajn</li><li>Webflow</li></ul>
           <a class="project-link" href="https://popycoffeefamily.com/" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a>
         </div>
@@ -1045,11 +1075,35 @@
       <div class="project-media"><img src="img/popy.webp" alt="Popy Coffee Family sajt" loading="lazy"></div>
       ili <div class="project-media"><video src="img/popy.mp4" autoplay muted loop playsinline></video></div> -->
     </article>
-
-    <article class="project">
+    <article class="project" id="bad">
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">02</span>
+          <span class="project-client" data-i18n="badClient">Pržionica kafe</span>
+        </div>
+        <div>
+          <h3 class="project-name">BAD Coffee Company</h3>
+          <p class="project-desc" data-i18n="badDesc">Online prodavnica napravljena da olakša poručivanje kafe <em>i izgradi prepoznatljiv brend.</em></p>
+        </div>
+        <div>
+          <a class="repeat" href="#popy"><span class="repeat-dot"></span><span data-i18n="badRepeat">Drugi projekat za istog klijenta, posle Popy Coffee Family ↑</span></a>
+          <ul class="tags"><li>E-commerce</li><li>Shopify</li><li data-i18n="tagUi">UI dizajn</li></ul>
+          <!-- Kad prodavnica bude javna, ubaci link:
+          <a class="project-link" href="LINK-PRODAVNICE" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a> -->
+        </div>
+      </div>
+      <ul class="case">
+        <li><h4 data-i18n="caseTask">Zadatak</h4><p data-i18n="badTask">Posle sajta za Popy Coffee Family, isti klijent se vratio sa novim brendom. Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.</p></li>
+        <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="badDone">Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.</p></li>
+        <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="badResult">Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.</p></li>
+      </ul>
+      <!-- Kad budeš imao snimak ili screenshot, ubaci ga ovde:
+      <div class="project-media"><img src="img/bad.webp" alt="BAD Coffee Company prodavnica" loading="lazy"></div> -->
+    </article>
+    <article class="project" id="terrazza">
+      <div class="project-info">
+        <div class="project-top">
+          <span class="project-num">03</span>
           <span class="project-client" data-i18n="terrazzaClient">Restoran</span>
         </div>
         <div>
@@ -1068,31 +1122,6 @@
       </ul>
       <!-- Kad budeš imao snimak ili screenshot, ubaci ga ovde:
       <div class="project-media"><img src="img/terrazza.webp" alt="Terrazza sajt" loading="lazy"></div> -->
-    </article>
-
-    <article class="project">
-      <div class="project-info">
-        <div class="project-top">
-          <span class="project-num">03</span>
-          <span class="project-client" data-i18n="badClient">Pržionica kafe</span>
-        </div>
-        <div>
-          <h3 class="project-name">BAD Coffee Company</h3>
-          <p class="project-desc" data-i18n="badDesc">Online prodavnica napravljena da olakša poručivanje kafe <em>i izgradi prepoznatljiv brend.</em></p>
-        </div>
-        <div>
-          <ul class="tags"><li>E-commerce</li><li>Shopify</li><li data-i18n="tagUi">UI dizajn</li></ul>
-          <!-- Kad prodavnica bude javna, ubaci link:
-          <a class="project-link" href="LINK-PRODAVNICE" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a> -->
-        </div>
-      </div>
-      <ul class="case">
-        <li><h4 data-i18n="caseTask">Zadatak</h4><p data-i18n="badTask">Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.</p></li>
-        <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="badDone">Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.</p></li>
-        <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="badResult">Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.</p></li>
-      </ul>
-      <!-- Kad budeš imao snimak ili screenshot, ubaci ga ovde:
-      <div class="project-media"><img src="img/bad.webp" alt="BAD Coffee Company prodavnica" loading="lazy"></div> -->
     </article>
   </div>
 </div>
@@ -1228,9 +1257,24 @@
      "photo" je opciono: ime fajla slike ili logoa, npr. "img/popy-logo.webp".
      ========================================================= */
   const testimonials = [
-    { name: "", role: "Popy Coffee Family", photo: "", text: { sr: "", en: "" } },
-    { name: "", role: "Terrazza", photo: "", text: { sr: "", en: "" } },
-    { name: "Novak", role: "BAD Coffee Company", photo: "", text: { sr: "", en: "" } }
+    {
+      name: "Novak Radulović",
+      role: { sr: "Vlasnik, Popy Coffee Family & BAD Coffee Company", en: "Owner, Popy Coffee Family & BAD Coffee Company" },
+      photo: "",
+      text: {
+        sr: "Popy Coffee je bio naš prvi projekat sa Lukom. Nakon toga smo mu poverili i izradu sajta za BAD Coffee Company. To najbolje govori koliko smo bili zadovoljni saradnjom. Znali smo kome želimo da poverimo sledeći projekat.",
+        en: "Popy Coffee was our first project with Luka. After that, we trusted him with the BAD Coffee Company website as well. That says best how happy we were with the collaboration. We knew who we wanted to trust with our next project."
+      }
+    },
+    {
+      name: "Bojan Grujičić",
+      role: { sr: "Vlasnik, Terrazza Pizza & Pasta Bar", en: "Owner, Terrazza Pizza & Pasta Bar" },
+      photo: "",
+      text: {
+        sr: "Luka je uspeo da kroz sajt prenese ono što nam je bilo najvažnije: atmosferu i karakter Terrazze. Saradnja je bila jednostavna i konkretna, a dobili smo sajt koji mnogo bolje predstavlja naš lokal i iskustvo koje želimo da pružimo gostima.",
+        en: "Through the website, Luka managed to capture what mattered most to us: the atmosphere and character of Terrazza. Working together was simple and to the point, and we got a website that represents our place and the experience we want to give our guests much better."
+      }
+    }
   ];
 
   const mailSubject = { sr: "Upit za sajt", en: "Website inquiry" };
@@ -1260,7 +1304,7 @@
       b4t: "Pravljen za telefon", b4: "Ljudi vas traže sa telefona, zato sajt prvo pravim za mali ekran pa tek onda za računar.",
       projLabel: "[ Studije slučaja ]",
       projTitle: "Izdvojeni <span>radovi.</span>",
-      projIntro: "Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio.",
+      projIntro: "Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio. Dva su za istog klijenta, koji se vratio posle prvog projekta.",
       caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat",
       popyClient: "Kafeterije",
       popyDesc: "Web sajt za lanac kafeterija <em>koji se širi.</em>",
@@ -1273,7 +1317,9 @@
       terrazzaDone: "Tamna, elegantna tema podređena fotografijama prostora, tri istaknuta specijaliteta, rezervacija stola i srpska i engleska verzija za strane goste.",
       terrazzaResult: "Gost za par sekundi vidi atmosferu, specijalitete kuće i kako da rezerviše sto.",
       badClient: "Pržionica kafe",
-      badTask: "Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.",
+      badTask: "Posle sajta za Popy Coffee Family, isti klijent se vratio sa novim brendom. Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.",
+      popyRepeat: "Klijent se vratio za drugi projekat: BAD Coffee Company ↓",
+      badRepeat: "Drugi projekat za istog klijenta, posle Popy Coffee Family ↑",
       badDone: "Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.",
       badResult: "Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.",
       badDesc: "Online prodavnica napravljena da olakša poručivanje kafe <em>i izgradi prepoznatljiv brend.</em>",
@@ -1321,7 +1367,7 @@
       b4t: "Built for phones", b4: "People look you up on their phones, so I design for the small screen first.",
       projLabel: "[ Case studies ]",
       projTitle: "Featured <span>work.</span>",
-      projIntro: "Selected work. For each one: what the client needed, what I did and what they got.",
+      projIntro: "Selected work. For each one: what the client needed, what I did and what they got. Two are for the same client, who came back after the first project.",
       caseTask: "The brief", caseDone: "What I did", caseResult: "The result",
       popyClient: "Cafés",
       popyDesc: "A website for a café chain <em>that keeps growing.</em>",
@@ -1334,7 +1380,9 @@
       terrazzaDone: "A dark, elegant theme built around photos of the space, three signature dishes, table booking and Serbian and English versions for foreign guests.",
       terrazzaResult: "In seconds, guests see the atmosphere, the house specialties and how to book a table.",
       badClient: "Coffee roastery",
-      badTask: "A new roastery needed an online store that carries the brand's bold character and makes buying coffee easy.",
+      badTask: "After the Popy Coffee Family website, the same client came back with a new brand. The new roastery needed an online store that carries the brand's bold character and makes buying coffee easy.",
+      popyRepeat: "The client came back for a second project: BAD Coffee Company ↓",
+      badRepeat: "Second project for the same client, after Popy Coffee Family ↑",
       badDone: "A Shopify store designed around the brand, coffees listed with origin and weight, and the story of the roastery and the roasting process.",
       badResult: "A store ready for launch: customers pick a coffee and check out in a few clicks, and the brand has a voice of its own.",
       badDesc: "An online store built to make ordering coffee easy <em>and build a recognizable brand.</em>",
@@ -1394,6 +1442,7 @@
   function renderTestimonials(lang) {
     const filled = testimonials.filter(t => t.text[lang] || t.text.sr);
     tSection.hidden = filled.length === 0;
+    tList.classList.toggle("is-single", filled.length === 1);
     tList.innerHTML = "";
     filled.forEach(t => {
       const card = document.createElement("figure");
@@ -1410,7 +1459,7 @@
       const who = document.createElement("div");
       who.innerHTML = "<strong></strong><span></span>";
       who.querySelector("strong").textContent = t.name;
-      who.querySelector("span").textContent = t.role;
+      who.querySelector("span").textContent = typeof t.role === "string" ? t.role : (t.role[lang] || t.role.sr);
       person.appendChild(who);
       card.append(q, person);
       tList.appendChild(card);
@@ -1418,7 +1467,7 @@
   }
 
   // Rezervna zaštita: poslednje dve reči uvek ostaju zajedno u istom redu
-  const NO_ORPHAN = "p, li h3, .steps h3, .benefits h3, .project-desc, .services-title, .about-lead, .cta-sub, .footer-tag, .case p, blockquote, .hero-bottom strong";
+  const NO_ORPHAN = "p, li h3, .steps h3, .benefits h3, .project-desc, .services-title, .about-lead, .cta-sub, .footer-tag, .case p, blockquote, .t-person span, .hero-bottom strong";
   function noOrphans(root) {
     root.querySelectorAll(NO_ORPHAN).forEach(el => {
       const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
