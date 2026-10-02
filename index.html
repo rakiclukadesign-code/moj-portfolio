@@ -825,19 +825,18 @@
     .hero-stats, .hero-bottom > span { display: none; }
 
     /* RAZMACI NA MOBILNOM
-       --G: čip -> naslov, --B: veliki naslov -> tekst ispod, --b: mali naslov u kartici -> tekst.
-       Mere su vidljive: od osnovne linije naslova do vrha slova u tekstu. */
-    :root { --G: 24px; --B: 24px; --b: 16px; }
+       --G: čip -> naslov (vidljiv razmak).
+       --T: naslov -> tekst ispod, svuda isti, 12px. */
+    :root { --G: 24px; --T: 12px; }
     .services-head, .projects-head, .process-head, .about-grid { gap: 0; }
-    .projects-title, .process-title, .cta-title { margin-bottom: calc(var(--B) - 0.0765em - 7px); }
-    .services-title, .about-lead { margin-bottom: calc(var(--B) - 0.2em - 7px); }
+    .projects-title, .process-title, .cta-title,
+    .services-title, .about-lead { margin-bottom: var(--T); }
     .cta-sub { margin-top: 0; }
     .benefits li { gap: 0; }
     .benefits .n { margin-bottom: 16px !important; }
-    .benefits h3 { margin-bottom: calc(var(--b) - 0.235em - 7px); }
-    .steps h3 { margin-bottom: calc(var(--b) - 0.235em - 7px); }
-    .project-name { line-height: 1; margin-bottom: calc(var(--b) - 0.0765em - 5.9px) !important; }
-    .case li { row-gap: calc(var(--b) - 5.2px - 7px) !important; }
+    .benefits h3, .steps h3 { margin-bottom: var(--T); }
+    .project-name { line-height: 1; margin-bottom: var(--T) !important; }
+    .case li { row-gap: var(--T) !important; }
     .nav-right .lang, .nav-right .btn { display: none; }
     .burger { display: block; }
     .hero {
