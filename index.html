@@ -584,6 +584,31 @@
     background: var(--gold);
     box-shadow: 0 0 0 4px var(--gold-dim);
   }
+  .project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .pulse {
+    position: relative;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse { to { transform: scale(3); opacity: 0; } }
   .case { list-style: none; border-top: 1px solid var(--line); align-self: center; }
   .case li {
     display: grid;
@@ -605,10 +630,12 @@
 
   .project-media {
     grid-column: 1 / -1;
+    margin: 0;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--line);
+    background: var(--bg-3);
   }
   .project-media img, .project-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -987,7 +1014,7 @@
     </div>
     <ul class="hero-stats">
       <li><strong>2022</strong><span data-i18n="stat1">Dizajn od</span></li>
-      <li><strong>02</strong><span data-i18n="stat2">Nove franšize za klijenta</span></li>
+      <li><strong>02</strong><span data-i18n="stat2">Projekta za istog klijenta</span></li>
     </ul>
   </div>
 
@@ -1088,14 +1115,15 @@
         <div>
           <a class="repeat" href="#popy"><span class="repeat-dot"></span><span data-i18n="badRepeat">Drugi projekat za istog klijenta, posle Popy Coffee Family ↑</span></a>
           <ul class="tags"><li>E-commerce</li><li>Shopify</li><li data-i18n="tagUi">UI dizajn</li></ul>
-          <!-- Kad prodavnica bude javna, ubaci link:
+          <span class="project-status"><span class="pulse"></span><span data-i18n="badStatus">U izradi · link stiže posle lansiranja</span></span>
+          <!-- Kad prodavnica bude javna, obriši red iznad i ubaci link:
           <a class="project-link" href="LINK-PRODAVNICE" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a> -->
         </div>
       </div>
       <ul class="case">
         <li><h4 data-i18n="caseTask">Zadatak</h4><p data-i18n="badTask">Posle sajta za Popy Coffee Family, isti klijent se vratio sa novim brendom. Novoj pržionici trebala je online prodavnica koja prenosi drzak karakter brenda i olakšava kupovinu kafe.</p></li>
         <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="badDone">Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.</p></li>
-        <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="badResult">Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.</p></li>
+        <li><h4 data-i18n="caseStatus">Status</h4><p data-i18n="badResult">Prodavnica je u završnoj fazi izrade. Cilj: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.</p></li>
       </ul>
       <!-- Kad budeš imao snimak ili screenshot, ubaci ga ovde:
       <div class="project-media"><img src="img/bad.webp" alt="BAD Coffee Company prodavnica" loading="lazy"></div> -->
@@ -1120,8 +1148,12 @@
         <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="terrazzaDone">Tamna, elegantna tema podređena fotografijama prostora, tri istaknuta specijaliteta, rezervacija stola i srpska i engleska verzija za strane goste.</p></li>
         <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="terrazzaResult">Gost za par sekundi vidi atmosferu, specijalitete kuće i kako da rezerviše sto.</p></li>
       </ul>
-      <!-- Kad budeš imao snimak ili screenshot, ubaci ga ovde:
-      <div class="project-media"><img src="img/terrazza.webp" alt="Terrazza sajt" loading="lazy"></div> -->
+      <figure class="project-media">
+        <video class="project-video" poster="img/terrazza.webp" muted loop playsinline preload="none" width="1280" height="720" aria-label="Snimak skrolovanja kroz sajt restorana Terrazza">
+          <source src="img/terrazza.webm" type="video/webm">
+          <source src="img/terrazza.mp4" type="video/mp4">
+        </video>
+      </figure>
     </article>
   </div>
 </div>
@@ -1291,7 +1323,7 @@
       heroLabel: "[ Brand / Web dizajn ]",
       heroIntro: "Dizajn i development za hospitality, lifestyle i digital-first brendove.",
       heroBtn1: "Pogledaj radove", heroBtn2: "Započni projekat",
-      stat1: "Dizajn od", stat2: "Nove franšize za klijenta",
+      stat1: "Dizajn od", stat2: "Projekta za istog klijenta",
       heroLine1: "Web sajtovi za brendove", heroLine2: "sa karakterom.",
       heroBottom: "Najviše radim sa restoranima, kafićima, pržionicama i lifestyle brendovima.",
       heroWhere: "Rad sa klijentima iz celog regiona",
@@ -1305,7 +1337,8 @@
       projLabel: "[ Studije slučaja ]",
       projTitle: "Izdvojeni <span>radovi.</span>",
       projIntro: "Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio. Dva su za istog klijenta, koji se vratio posle prvog projekta.",
-      caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat",
+      caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat", caseStatus: "Status",
+      badStatus: "U izradi · link stiže posle lansiranja",
       popyClient: "Kafeterije",
       popyDesc: "Web sajt za lanac kafeterija <em>koji se širi.</em>",
       popyTask: "Lancu koji raste trebao je jedan sajt koji istovremeno govori gostima, budućim zaposlenima i potencijalnim partnerima.",
@@ -1321,7 +1354,7 @@
       popyRepeat: "Klijent se vratio za drugi projekat: BAD Coffee Company ↓",
       badRepeat: "Drugi projekat za istog klijenta, posle Popy Coffee Family ↑",
       badDone: "Shopify prodavnica sa dizajnom napravljenim za brend, ponuda kafa sa poreklom i gramažom, priča o pržionici i procesu prženja.",
-      badResult: "Prodavnica spremna za lansiranje: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.",
+      badResult: "Prodavnica je u završnoj fazi izrade. Cilj: kupac za par klikova bira kafu i završava porudžbinu, a brend ima svoj prepoznatljiv glas.",
       badDesc: "Online prodavnica napravljena da olakša poručivanje kafe <em>i izgradi prepoznatljiv brend.</em>",
       tagCafes: "Kafeterije", tagUi: "UI dizajn", tagRestaurant: "Restoran",
       viewSite: "Pogledaj sajt",
@@ -1354,7 +1387,7 @@
       heroLabel: "[ Brand / Web design ]",
       heroIntro: "Design and development for hospitality, lifestyle and digital-first brands.",
       heroBtn1: "View work", heroBtn2: "Start a project",
-      stat1: "Designing since", stat2: "New franchises for a client",
+      stat1: "Designing since", stat2: "Projects for the same client",
       heroLine1: "Websites for brands", heroLine2: "with character.",
       heroBottom: "I mostly work with restaurants, cafés, roasteries and lifestyle brands.",
       heroWhere: "Working with clients across the region",
@@ -1368,7 +1401,8 @@
       projLabel: "[ Case studies ]",
       projTitle: "Featured <span>work.</span>",
       projIntro: "Selected work. For each one: what the client needed, what I did and what they got. Two are for the same client, who came back after the first project.",
-      caseTask: "The brief", caseDone: "What I did", caseResult: "The result",
+      caseTask: "The brief", caseDone: "What I did", caseResult: "The result", caseStatus: "Status",
+      badStatus: "In progress · link coming after launch",
       popyClient: "Cafés",
       popyDesc: "A website for a café chain <em>that keeps growing.</em>",
       popyTask: "A growing chain needed one website that speaks to guests, future staff and potential partners at the same time.",
@@ -1384,7 +1418,7 @@
       popyRepeat: "The client came back for a second project: BAD Coffee Company ↓",
       badRepeat: "Second project for the same client, after Popy Coffee Family ↑",
       badDone: "A Shopify store designed around the brand, coffees listed with origin and weight, and the story of the roastery and the roasting process.",
-      badResult: "A store ready for launch: customers pick a coffee and check out in a few clicks, and the brand has a voice of its own.",
+      badResult: "The store is in the final stage of development. The goal: customers pick a coffee and check out in a few clicks, and the brand has a voice of its own.",
       badDesc: "An online store built to make ordering coffee easy <em>and build a recognizable brand.</em>",
       tagCafes: "Cafés", tagUi: "UI design", tagRestaurant: "Restaurant",
       viewSite: "View website",
@@ -1586,6 +1620,20 @@
       const fit = window.innerHeight - card.offsetHeight - 16;
       card.style.top = Math.min(base, fit) + "px";
     });
+  }
+
+  // Video projekata: pušta se samo dok je na ekranu, da ne troši internet i bateriju
+  const videos = document.querySelectorAll(".project-video");
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!calm && "IntersectionObserver" in window) {
+    const vio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) { v.preload = "auto"; const p = v.play(); if (p) p.catch(() => {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.35 });
+    videos.forEach(v => vio.observe(v));
   }
 
   function fitAll() { fitTitle(); fitMark(); markAccents(); stickCards(); }
