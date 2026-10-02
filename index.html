@@ -631,6 +631,28 @@
     animation: pulse 2s ease-out infinite;
   }
   @keyframes pulse { to { transform: scale(3); opacity: 0; } }
+  /* Istaknut projekat (Popy) */
+  .project--featured { border-color: var(--gold-dim); box-shadow: 0 -24px 48px rgba(0,0,0,.4), inset 0 0 0 1px rgba(201,168,106,.08); }
+  .case li:has(h4[data-i18n="caseResult"]) p,
+  .case li:has(h4[data-i18n="caseOutcome"]) p,
+  .case li:has(h4[data-i18n="caseStatus"]) p { color: var(--text); }
+  .case-quote p { font-family: var(--font-serif); font-size: 24px; line-height: 1.3; color: var(--text) !important; }
+  .case-quote p span { display: block; margin-top: 8px; font-family: var(--font-sans); font-size: 13px; color: var(--muted); }
+
+  /* Projekat u izradi (BAD Coffee): vizuelno odvojen od završenih */
+  .project--wip { background: var(--bg); border-style: dashed; border-color: var(--line-strong); box-shadow: none; }
+  .project--wip .project-top { justify-content: flex-start; gap: 12px; }
+  .project--wip .project-client { margin-left: auto; }
+  .wip-chip {
+    padding: 4px 10px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
   .case { list-style: none; border-top: 1px solid var(--line); align-self: center; }
   .case li {
     display: grid;
@@ -1028,7 +1050,7 @@
   <div class="hero-top fade-in">
     <div>
       <span class="label" data-i18n="heroLabel">[ Brand / Web dizajn ]</span>
-      <p class="hero-intro" data-i18n="heroIntro">Dizajn i development za hospitality, lifestyle i digital-first brendove.</p>
+      <p class="hero-intro" data-i18n="heroIntro">Web dizajn i development za hospitality, food i lifestyle brendove.</p>
       <div class="hero-actions">
         <a href="#projekti" class="btn-gold btn-sm"><span data-i18n="heroBtn1">Pogledaj radove</span><span>→</span></a>
         <a href="#kontakt" class="btn btn-lg"><span data-i18n="heroBtn2">Započni projekat</span><span>→</span></a>
@@ -1059,7 +1081,7 @@
       <span class="label" data-i18n="servLabel">[ Šta radim ]</span>
       <h2 class="services-title" data-i18n="servTitle">Sajtovi za brendove kojima je važno kako izgledaju, kako komuniciraju <em>i kako ih ljudi doživljavaju online.</em></h2>
     </div>
-    <p class="services-note reveal" data-i18n="servNote"><strong>Jedna osoba, ceo proces.</strong>Od prve ideje do objavljenog sajta: dizajn, development i sve između. Bez prebacivanja projekta između dizajnera, developera i agencije.</p>
+    <p class="services-note reveal" data-i18n="servNote"><strong>Jedna osoba, ceo proces.</strong> Od prve ideje do objavljenog sajta: dizajn, development i sve između. Bez prebacivanja projekta između dizajnera, developera i agencije.</p>
   </div>
 
   <ul class="benefits">
@@ -1117,13 +1139,13 @@
       <ul class="case">
         <li><h4 data-i18n="caseTask">Zadatak</h4><p data-i18n="terrazzaTask">Restoranu italijanske i srpske kuhinje trebao je sajt koji prenosi premium atmosferu, a zadržava domaću toplinu.</p></li>
         <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="terrazzaDone">Tamna, elegantna tema podređena fotografijama prostora, tri istaknuta specijaliteta, rezervacija stola i srpska i engleska verzija za strane goste.</p></li>
-        <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="terrazzaResult">Gost za par sekundi vidi atmosferu, specijalitete kuće i kako da rezerviše sto.</p></li>
+        <li><h4 data-i18n="caseOutcome">Ishod</h4><p data-i18n="terrazzaResult">Gost za par sekundi vidi atmosferu, specijalitete kuće i kako da rezerviše sto.</p></li>
       </ul>
       <figure class="project-media">
         <img src="img/terrazza-restoran-web-sajt.webp" data-i18n-alt="terrazzaAlt" alt="Web sajt za restoran Terrazza na laptopu i mobilnom telefonu: premium početna stranica i meni restorana" loading="lazy" decoding="async" width="1600" height="900">
       </figure>
     </article>
-    <article class="project" id="popy">
+    <article class="project project--featured" id="popy">
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">02</span>
@@ -1143,15 +1165,17 @@
         <li><h4 data-i18n="caseTask">Zadatak</h4><p data-i18n="popyTask">Lancu koji raste trebao je jedan sajt koji istovremeno govori gostima, budućim zaposlenima i potencijalnim partnerima.</p></li>
         <li><h4 data-i18n="caseDone">Šta sam uradio</h4><p data-i18n="popyDone">Meni po kategorijama, sve lokacije sa radnim vremenom i mapom, prijava za posao, forma za franšizu i merč, sve na jednoj stranici.</p></li>
         <li><h4 data-i18n="caseResult">Rezultat</h4><p data-i18n="popyResult">Prijave za posao i upiti za franšizu sada stižu direktno preko sajta.</p></li>
+        <li class="case-quote"><h4 data-i18n="caseQuote">Klijent kaže</h4><p data-i18n="popyQuote">„Znali smo kome želimo da poverimo sledeći projekat.“ <span>Novak Radulović, vlasnik</span></p></li>
       </ul>
       <figure class="project-media">
         <img src="img/popy-coffee-family-web-sajt.webp" data-i18n-alt="popyAlt" alt="Web sajt za Popy Coffee Family na laptopu i mobilnom telefonu: početna stranica i meni kafeterije" loading="lazy" decoding="async" width="1600" height="901">
       </figure>
     </article>
-    <article class="project" id="bad">
+    <article class="project project--wip" id="bad">
       <div class="project-info">
         <div class="project-top">
           <span class="project-num">03</span>
+          <span class="wip-chip" data-i18n="wipLabel">U izradi</span>
           <span class="project-client" data-i18n="badClient">Pržionica kafe</span>
         </div>
         <div>
@@ -1161,7 +1185,7 @@
         <div>
           <a class="repeat" href="#popy"><span class="repeat-dot"></span><span data-i18n="badRepeat">Drugi projekat za istog klijenta, posle Popy Coffee Family ↑</span></a>
           <ul class="tags"><li>E-commerce</li><li>Shopify</li><li data-i18n="tagUi">UI dizajn</li></ul>
-          <span class="project-status"><span class="pulse"></span><span data-i18n="badStatus">U izradi · link stiže posle lansiranja</span></span>
+          <span class="project-status"><span class="pulse"></span><span data-i18n="badStatus">Link stiže posle lansiranja</span></span>
           <!-- Kad prodavnica bude javna, obriši red iznad i ubaci link:
           <a class="project-link" href="LINK-PRODAVNICE" target="_blank" rel="noopener"><span data-i18n="viewSite">Pogledaj sajt</span><span class="arrow">↗</span></a> -->
         </div>
@@ -1197,7 +1221,7 @@
     <li class="reveal">
       <span class="n">02</span>
       <h3 data-i18n="p2t">Dizajn</h3>
-      <p data-i18n="p2">Pravim izgled sajta i šaljem vam ga na pregled. Menjamo dok ne bude tačno kako treba.</p>
+      <p data-i18n="p2">Pravim izgled sajta i šaljem vam ga na pregled. Dorađujemo ga na osnovu vašeg feedbacka, kroz jasno definisane krugove revizija.</p>
     </li>
     <li class="reveal">
       <span class="n">03</span>
@@ -1207,7 +1231,7 @@
     <li class="reveal">
       <span class="n">04</span>
       <h3 data-i18n="p4t">Objava i podrška</h3>
-      <p data-i18n="p4">Postavljam sajt, povezujem domen i ostajem tu za izmene i održavanje.</p>
+      <p data-i18n="p4">Postavljam sajt i povezujem domen. Po potrebi možemo nastaviti saradnju kroz izmene i održavanje.</p>
     </li>
   </ol>
 </div>
@@ -1249,7 +1273,7 @@
 <div class="wrap">
   <span class="label reveal" data-i18n="ctaLabel">[ Kontakt ]</span>
   <h2 class="cta-title reveal" data-i18n="ctaTitle">Planirate novi sajt <em>ili redizajn?</em></h2>
-  <p class="cta-sub reveal" data-i18n="ctaSub">Pošaljite mi link do trenutnog sajta i nekoliko rečenica o vašem brendu i projektu. Javiću vam se sa idejama i sledećim korakom.</p>
+  <p class="cta-sub reveal" data-i18n="ctaSub">Pošaljite mi nekoliko rečenica o brendu i projektu, kao i link do trenutnog sajta ako ga imate. Javiću vam se sa idejama i sledećim korakom.</p>
   <div class="cta-row reveal">
     <a class="btn-gold" id="mailBtn" href="mailto:rakicluka.design@gmail.com"><span data-i18n="ctaBtn">Pošaljite upit</span><span>→</span></a>
     <button type="button" class="copy-mail" id="copyMail">rakicluka.design@gmail.com <small data-i18n="copy">Kopiraj</small></button>
@@ -1330,8 +1354,8 @@
 
   const mailSubject = { sr: "Upit za sajt", en: "Website inquiry" };
   const mailBody = {
-    sr: "Zdravo Luka,\n\nLink do trenutnog sajta (ako postoji):\n\nNekoliko rečenica o projektu:\n\n",
-    en: "Hi Luka,\n\nLink to the current website (if any):\n\nA few sentences about the project:\n\n"
+    sr: "Zdravo Luka,\n\nNekoliko rečenica o brendu i projektu:\n\nLink do trenutnog sajta (ako postoji):\n\n",
+    en: "Hi Luka,\n\nA few sentences about the brand and project:\n\nLink to the current website (if any):\n\n"
   };
 
   const dict = {
@@ -1340,7 +1364,7 @@
       navProjects: "Projekti", navProcess: "Proces", navAbout: "O meni", navContact: "Kontakt",
       navCta: "Pošaljite upit",
       heroLabel: "[ Brand / Web dizajn ]",
-      heroIntro: "Dizajn i development za hospitality, lifestyle i digital-first brendove.",
+      heroIntro: "Web dizajn i development za hospitality, food i lifestyle brendove.",
       heroBtn1: "Pogledaj radove", heroBtn2: "Započni projekat",
       stat1: "Dizajn od", stat2: "Projekta za istog klijenta",
       heroLine1: "Web sajtovi za brendove", heroLine2: "sa karakterom.",
@@ -1348,7 +1372,7 @@
       heroWhere: "Rad sa klijentima iz celog regiona",
       servLabel: "[ Šta radim ]",
       servTitle: "Sajtovi za brendove kojima je važno kako izgledaju, kako komuniciraju <em>i kako ih ljudi doživljavaju online.</em>",
-      servNote: "<strong>Jedna osoba, ceo proces.</strong>Od prve ideje do objavljenog sajta: dizajn, development i sve između. Bez prebacivanja projekta između dizajnera, developera i agencije.",
+      servNote: "<strong>Jedna osoba, ceo proces.</strong> Od prve ideje do objavljenog sajta: dizajn, development i sve između. Bez prebacivanja projekta između dizajnera, developera i agencije.",
       b1t: "Jasna ponuda", b1: "Proizvodi, usluge ili meni složeni tako da posetilac za par sekundi zna šta nudite.",
       b2t: "Izgleda kao vaš brend", b2: "Dizajn napravljen za vas, a ne još jedan šablon koji liči na sve ostale.",
       b3t: "Jedan klik do akcije", b3: "Rezervacija, porudžbina, upit ili prijava, bez lutanja po sajtu.",
@@ -1356,8 +1380,10 @@
       projLabel: "[ Studije slučaja ]",
       projTitle: "Izdvojeni <span>radovi.</span>",
       projIntro: "Odabrani radovi. Za svaki: šta je klijentu trebalo, šta sam uradio i šta je dobio. Dva su za istog klijenta, koji se vratio posle prvog projekta.",
-      caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat", caseStatus: "Status",
-      badStatus: "U izradi · link stiže posle lansiranja",
+      caseTask: "Zadatak", caseDone: "Šta sam uradio", caseResult: "Rezultat", caseOutcome: "Ishod", caseStatus: "Status", caseQuote: "Klijent kaže",
+      popyQuote: "„Znali smo kome želimo da poverimo sledeći projekat.“ <span>Novak Radulović, vlasnik</span>",
+      wipLabel: "U izradi",
+      badStatus: "Link stiže posle lansiranja",
       popyClient: "Kafeterije",
       popyAlt: "Web sajt za Popy Coffee Family na laptopu i mobilnom telefonu: početna stranica i meni kafeterije",
       terrazzaAlt: "Web sajt za restoran Terrazza na laptopu i mobilnom telefonu: premium početna stranica i meni restorana",
@@ -1383,9 +1409,9 @@
       procTitle: "Četiri <span>koraka.</span>",
       procIntro: "Prvi put pravite sajt? Ovako izgleda ceo put, od prvog razgovora do sajta koji radi za vas.",
       p1t: "Razgovor", p1: "Saznam kako radi vaš biznis, ko su vam kupci ili gosti i šta sajt treba da postigne.",
-      p2t: "Dizajn", p2: "Pravim izgled sajta i šaljem vam ga na pregled. Menjamo dok ne bude tačno kako treba.",
+      p2t: "Dizajn", p2: "Pravim izgled sajta i šaljem vam ga na pregled. Dorađujemo ga na osnovu vašeg feedbacka, kroz jasno definisane krugove revizija.",
       p3t: "Izrada", p3: "Sajt pravim tako da se brzo učitava i izgleda dobro na telefonu i računaru.",
-      p4t: "Objava i podrška", p4: "Postavljam sajt, povezujem domen i ostajem tu za izmene i održavanje.",
+      p4t: "Objava i podrška", p4: "Postavljam sajt i povezujem domen. Po potrebi možemo nastaviti saradnju kroz izmene i održavanje.",
       tLabel: "[ Utisci klijenata ]", tTitle: "Šta kažu <span>klijenti.</span>",
       aboutLabel: "[ O meni ]",
       aboutLead: "Ja sam Luka. Volim kad sajt izgleda <em>čisto, jasno</em> i kad radi za onoga ko ga je naručio.",
@@ -1393,7 +1419,7 @@
       aboutP2: "<strong>Za koga radim?</strong> Najviše za ugostiteljstvo, hranu i kafu, ali i za lifestyle brendove, građevinu i modne agencije. Zajedničko im je jedno: brend sa karakterom kome je bitno kako izgleda online.",
       ctaLabel: "[ Kontakt ]",
       ctaTitle: "Planirate novi sajt <em>ili redizajn?</em>",
-      ctaSub: "Pošaljite mi link do trenutnog sajta i nekoliko rečenica o vašem brendu i projektu. Javiću vam se sa idejama i sledećim korakom.",
+      ctaSub: "Pošaljite mi nekoliko rečenica o brendu i projektu, kao i link do trenutnog sajta ako ga imate. Javiću vam se sa idejama i sledećim korakom.",
       ctaBtn: "Pošaljite upit",
       copy: "Kopiraj", copied: "Kopirano",
       footTag: "Web sajtovi za brendove <em>sa karakterom.</em>",
@@ -1406,7 +1432,7 @@
       navProjects: "Projects", navProcess: "Process", navAbout: "About", navContact: "Contact",
       navCta: "Send an inquiry",
       heroLabel: "[ Brand / Web design ]",
-      heroIntro: "Design and development for hospitality, lifestyle and digital-first brands.",
+      heroIntro: "Web design and development for hospitality, food and lifestyle brands.",
       heroBtn1: "View work", heroBtn2: "Start a project",
       stat1: "Designing since", stat2: "Projects for the same client",
       heroLine1: "Websites for brands", heroLine2: "with character.",
@@ -1414,7 +1440,7 @@
       heroWhere: "Working with clients across the region",
       servLabel: "[ What I do ]",
       servTitle: "Websites for brands that care how they look, how they communicate <em>and how people experience them online.</em>",
-      servNote: "<strong>One person, the whole process.</strong>From the first idea to a published website: design, development and everything in between. No handing the project between a designer, a developer and an agency.",
+      servNote: "<strong>One person, the whole process.</strong> From the first idea to a published website: design, development and everything in between. No handing the project between a designer, a developer and an agency.",
       b1t: "A clear offer", b1: "Products, services or menu arranged so visitors know what you offer in seconds.",
       b2t: "Looks like your brand", b2: "A design made for you, not another template that looks like everyone else.",
       b3t: "One click to act", b3: "Booking, ordering, inquiring or applying, without wandering around the site.",
@@ -1422,8 +1448,10 @@
       projLabel: "[ Case studies ]",
       projTitle: "Featured <span>work.</span>",
       projIntro: "Selected work. For each one: what the client needed, what I did and what they got. Two are for the same client, who came back after the first project.",
-      caseTask: "The brief", caseDone: "What I did", caseResult: "The result", caseStatus: "Status",
-      badStatus: "In progress · link coming after launch",
+      caseTask: "The brief", caseDone: "What I did", caseResult: "The result", caseOutcome: "The outcome", caseStatus: "Status", caseQuote: "Client says",
+      popyQuote: "“We knew who we wanted to trust with our next project.” <span>Novak Radulović, owner</span>",
+      wipLabel: "Work in progress",
+      badStatus: "Link coming after launch",
       popyClient: "Cafés",
       popyAlt: "Popy Coffee Family website on a laptop and a phone: homepage and café menu",
       terrazzaAlt: "Terrazza restaurant website on a laptop and a phone: premium homepage and restaurant menu",
@@ -1449,9 +1477,9 @@
       procTitle: "Four <span>steps.</span>",
       procIntro: "Building a website for the first time? Here is the whole path, from our first talk to a website that works for you.",
       p1t: "Talk", p1: "I learn how your business runs, who your customers or guests are and what the website needs to achieve.",
-      p2t: "Design", p2: "I design the website and send it to you for review. We refine it until it's exactly right.",
+      p2t: "Design", p2: "I design the website and send it to you for review. We refine it based on your feedback, in clearly defined revision rounds.",
       p3t: "Build", p3: "I build it to load fast and look good on both phone and desktop.",
-      p4t: "Launch and support", p4: "I publish the site, connect your domain and stay available for changes and maintenance.",
+      p4t: "Launch and support", p4: "I publish the site and connect your domain. If needed, we can continue working together on updates and maintenance.",
       tLabel: "[ Client words ]", tTitle: "What clients <span>say.</span>",
       aboutLabel: "[ About me ]",
       aboutLead: "I'm Luka. I like websites that look <em>clean, clear</em> and work for the people who ordered them.",
@@ -1459,7 +1487,7 @@
       aboutP2: "<strong>Who I work with?</strong> Mostly hospitality, food and coffee, but also lifestyle brands, construction and fashion agencies. They all share one thing: a brand with character that cares how it looks online.",
       ctaLabel: "[ Contact ]",
       ctaTitle: "Planning a new website <em>or a redesign?</em>",
-      ctaSub: "Send me a link to your current website and a few sentences about your brand and project. I'll get back to you with ideas and the next step.",
+      ctaSub: "Send me a few sentences about your brand and project, plus a link to your current website if you have one. I'll get back to you with ideas and the next step.",
       ctaBtn: "Send an inquiry",
       copy: "Copy", copied: "Copied",
       footTag: "Websites for brands <em>with character.</em>",
