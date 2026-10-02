@@ -917,7 +917,7 @@
     .wrap { width: min(100% - 40px, 360px); }
     .services, .projects, .process, .testimonials, .about, .cta { padding: 96px 0; }
     .footer { padding: 64px 0 32px; }
-    .hero-stats, .hero-bottom > span { display: none; }
+    .hero-stats { display: none; }
 
     /* RAZMACI NA MOBILNOM
        --G: čip -> naslov (vidljiv razmak).
@@ -1057,7 +1057,7 @@
       </div>
     </div>
     <ul class="hero-stats">
-      <li><strong>2022</strong><span data-i18n="stat1">Dizajn od</span></li>
+      <li><strong data-i18n="stat1n">Od 2022.</strong><span data-i18n="stat1">Web dizajn</span></li>
       <li><strong>02</strong><span data-i18n="stat2">Projekta za istog klijenta</span></li>
     </ul>
   </div>
@@ -1068,7 +1068,6 @@
   </h1>
 
   <div class="hero-bottom fade-in">
-    <strong data-i18n="heroBottom">Najviše radim sa restoranima, kafićima, pržionicama i lifestyle brendovima.</strong>
     <span data-i18n="heroWhere">Rad sa klijentima iz celog regiona</span>
   </div>
 </section>
@@ -1366,9 +1365,8 @@
       heroLabel: "[ Brand / Web dizajn ]",
       heroIntro: "Web dizajn i development za hospitality, food i lifestyle brendove.",
       heroBtn1: "Pogledaj radove", heroBtn2: "Započni projekat",
-      stat1: "Dizajn od", stat2: "Projekta za istog klijenta",
+      stat1n: "Od 2022.", stat1: "Web dizajn", stat2: "Projekta za istog klijenta",
       heroLine1: "Web sajtovi za brendove", heroLine2: "sa karakterom.",
-      heroBottom: "Najviše radim sa restoranima, kafićima, pržionicama i lifestyle brendovima.",
       heroWhere: "Rad sa klijentima iz celog regiona",
       servLabel: "[ Šta radim ]",
       servTitle: "Sajtovi za brendove kojima je važno kako izgledaju, kako komuniciraju <em>i kako ih ljudi doživljavaju online.</em>",
@@ -1434,9 +1432,8 @@
       heroLabel: "[ Brand / Web design ]",
       heroIntro: "Web design and development for hospitality, food and lifestyle brands.",
       heroBtn1: "View work", heroBtn2: "Start a project",
-      stat1: "Designing since", stat2: "Projects for the same client",
+      stat1n: "Since 2022", stat1: "Web design", stat2: "Projects for the same client",
       heroLine1: "Websites for brands", heroLine2: "with character.",
-      heroBottom: "I mostly work with restaurants, cafés, roasteries and lifestyle brands.",
       heroWhere: "Working with clients across the region",
       servLabel: "[ What I do ]",
       servTitle: "Websites for brands that care how they look, how they communicate <em>and how people experience them online.</em>",
@@ -1552,7 +1549,7 @@
   }
 
   // Rezervna zaštita: poslednje dve reči uvek ostaju zajedno u istom redu
-  const NO_ORPHAN = "p, li h3, .steps h3, .benefits h3, .project-desc, .services-title, .about-lead, .cta-sub, .footer-tag, .case p, blockquote, .t-person span, .hero-bottom strong";
+  const NO_ORPHAN = "p, li h3, .steps h3, .benefits h3, .project-desc, .services-title, .about-lead, .cta-sub, .footer-tag, .case p, blockquote, .t-person span";
   function noOrphans(root) {
     root.querySelectorAll(NO_ORPHAN).forEach(el => {
       const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
