@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://TVOJ-DOMEN.rs/sitemap.xml
+Sitemap: https://rakicdsgn.com/sitemap.xml
