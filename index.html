@@ -656,6 +656,138 @@
   .about-skills .tags li { font-size: 12px; padding: 12px 16px; }
   .about-skills .tags li.is-tool { color: var(--text); border-color: var(--gold-dim); background: rgba(201,168,106,0.06); }
 
+  /* ---------- CTA / KONTAKT ---------- */
+  .cta {
+    position: relative;
+    padding: 160px var(--gutter) 120px;
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(50% 60% at 50% 100%, rgba(201,168,106,0.12), transparent 70%);
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 152px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    max-width: 1280px;
+    margin-bottom: 64px;
+  }
+  .cta-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    text-transform: none;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    height: 64px;
+    padding: 0 32px;
+    border-radius: 100px;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform .3s ease, background .3s ease;
+  }
+  .btn-gold:hover { background: var(--text); transform: translateY(-4px); }
+  .copy-mail {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    height: 64px;
+    padding: 0 32px;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-size: 16px;
+    color: var(--text);
+    transition: border-color .3s ease;
+  }
+  .copy-mail:hover { border-color: var(--gold); }
+  .copy-mail small {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    padding: 80px var(--gutter) 32px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    padding-bottom: 80px;
+  }
+  .footer-tag {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1.2;
+    max-width: 360px;
+  }
+  .footer-tag em { font-style: italic; color: var(--gold); }
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a { color: var(--muted); transition: color .3s ease; }
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-mark {
+    display: inline-block;
+    padding-top: 0.12em;
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.82;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: clamp(1px, 0.006em, 2px) var(--line-strong);
+    user-select: none;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 24px;
+    margin-top: 32px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .footer-bottom a { color: var(--text); }
+  .footer-bottom a:hover { color: var(--gold); }
+
   /* ---------- TABLET ---------- */
   @media (max-width: 1024px) {
     .nav-links { display: none; }
@@ -668,6 +800,8 @@
     .about-grid { grid-template-columns: 1fr; gap: 64px; }
     .about-photo { position: relative; top: 0; max-width: 480px; }
     .about-lead { font-size: 44px; }
+    .footer-cols { grid-template-columns: 1fr 1fr 1fr; }
+    .footer-cols > :first-child { grid-column: 1 / -1; }
   }
 
   /* ---------- MOBILNI (pod 360px) ---------- */
@@ -705,6 +839,16 @@
     .about-photo figcaption { left: 16px; right: 16px; bottom: 16px; font-size: 10px; }
     .about-photo figcaption > span:last-child { display: none; }
     .about-skills { margin-top: 48px; }
+    .cta { padding: 96px var(--gutter) 80px; }
+    .cta-title { margin-bottom: 40px; }
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .btn-gold, .copy-mail { justify-content: space-between; height: 56px; padding: 0 24px; }
+    .copy-mail { font-size: 14px; }
+    .footer { padding-top: 64px; }
+    .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px 24px; padding-bottom: 56px; }
+    .footer-cols > :last-child { grid-column: 1 / -1; }
+    .footer-tag { font-size: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
     .hero-bottom .tagline { max-width: 160px; line-height: 1.6; }
   }
 
@@ -928,6 +1072,54 @@
   </div>
 </section>
 
+<!-- CTA / KONTAKT -->
+<section class="cta" id="kontakt">
+  <span class="label reveal" data-i18n="ctaLabel">[ Kontakt ]</span>
+  <h2 class="cta-title reveal" data-i18n="ctaTitle">Hajde da tvoj lokal podignemo <em>na viši nivo.</em></h2>
+  <div class="cta-row reveal">
+    <a class="btn-gold" href="mailto:rakicluka.design@gmail.com"><span data-i18n="cta">Hajde da pričamo</span><span>↗</span></a>
+    <button type="button" class="copy-mail" id="copyMail">rakicluka.design@gmail.com <small data-i18n="copy">Kopiraj</small></button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-cols">
+    <p class="footer-tag" data-i18n="footTag">Sajtovi za restorane, kafiće i pržionice <em>koje žele da budu primećene.</em></p>
+    <div class="footer-col">
+      <h4 data-i18n="footSite">Sajt</h4>
+      <ul>
+        <li><a href="#top" data-i18n="footHome">Početna</a></li>
+        <li><a href="#projekti" data-i18n="navProjects">Projekti</a></li>
+        <li><a href="#o-meni" data-i18n="navAbout">O meni</a></li>
+        <li><a href="#kontakt" data-i18n="navContact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footFollow">Prati</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/rakicweb/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="navContact">Kontakt</h4>
+      <ul>
+        <li><a href="mailto:rakicluka.design@gmail.com">rakicluka.design@gmail.com</a></li>
+        <li><span style="color: var(--muted)" data-i18n="footCity">Beograd, Srbija</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="footer-mark" id="footerMark" aria-hidden="true">Luka Rakić</span>
+
+  <div class="footer-bottom">
+    <span>© <span id="year">2026</span> Luka Rakić</span>
+    <span data-i18n="tagline">Čisto. Jasno. Precizno.</span>
+    <a href="#top" data-i18n="backTop">Nazad na vrh ↑</a>
+  </div>
+</footer>
+
 <script>
   const dict = {
     sr: {
@@ -969,7 +1161,13 @@
       aboutS3t: "Danas",
       aboutS3: "Na početku sam radio za sve vrste branši, od građevine do modnih agencija. Danas radim sa ugostiteljima koji žele da izađu iz proseka i rastu, kao Popy Coffee, koji se širi po Beogradu.",
       aboutSkills: "[ Šta radim najbolje ]",
-      skWeb: "Web dizajn", skLanding: "Landing stranice", skStores: "Online prodavnice", skResp: "Responsive dizajn", skAi: "AI u procesu rada"
+      skWeb: "Web dizajn", skLanding: "Landing stranice", skStores: "Online prodavnice", skResp: "Responsive dizajn", skAi: "AI u procesu rada",
+      ctaLabel: "[ Kontakt ]",
+      ctaTitle: "Hajde da tvoj lokal podignemo <em>na viši nivo.</em>",
+      copy: "Kopiraj", copied: "Kopirano",
+      footTag: "Sajtovi za restorane, kafiće i pržionice <em>koje žele da budu primećene.</em>",
+      footSite: "Sajt", footHome: "Početna", footFollow: "Prati", footCity: "Beograd, Srbija",
+      backTop: "Nazad na vrh ↑"
     },
     en: {
       title: "Luka Rakić | Websites for hospitality",
@@ -1010,7 +1208,13 @@
       aboutS3t: "Today",
       aboutS3: "I started out working across every industry, from construction to fashion agencies. Today I work with hospitality businesses that want to stand out and grow, like Popy Coffee, now expanding across Belgrade.",
       aboutSkills: "[ What I do best ]",
-      skWeb: "Web design", skLanding: "Landing pages", skStores: "Online stores", skResp: "Responsive design", skAi: "AI in my workflow"
+      skWeb: "Web design", skLanding: "Landing pages", skStores: "Online stores", skResp: "Responsive design", skAi: "AI in my workflow",
+      ctaLabel: "[ Contact ]",
+      ctaTitle: "Let's take your place <em>to the next level.</em>",
+      copy: "Copy", copied: "Copied",
+      footTag: "Websites for restaurants, cafés and roasteries <em>that want to stand out.</em>",
+      footSite: "Site", footHome: "Home", footFollow: "Follow", footCity: "Belgrade, Serbia",
+      backTop: "Back to top ↑"
     }
   };
 
@@ -1087,6 +1291,35 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
   }, { threshold: 0.2 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Footer: ime preko cele širine
+  const mark = document.getElementById("footerMark");
+  function fitMark() {
+    mark.style.fontSize = "100px";
+    const w = mark.getBoundingClientRect().width;
+    const cs = getComputedStyle(mark.parentElement);
+    const avail = mark.parentElement.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    mark.style.fontSize = (100 * avail / w * 0.995) + "px";
+  }
+  window.addEventListener("resize", fitMark);
+  if (document.fonts) document.fonts.ready.then(fitMark);
+  fitMark();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Kopiranje mejla
+  const copyBtn = document.getElementById("copyMail");
+  copyBtn.addEventListener("click", async () => {
+    const label = copyBtn.querySelector("small");
+    const lang = document.documentElement.lang === "en" ? "en" : "sr";
+    try {
+      await navigator.clipboard.writeText("rakicluka.design@gmail.com");
+      label.textContent = dict[lang].copied;
+    } catch (e) {
+      window.location.href = "mailto:rakicluka.design@gmail.com";
+    }
+    setTimeout(() => { label.textContent = dict[lang].copy; }, 2000);
+  });
 
   window.addEventListener("resize", fitTitle);
   if (document.fonts) document.fonts.ready.then(fitTitle);
