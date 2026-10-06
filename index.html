@@ -40,6 +40,7 @@
 
 <!-- Brže učitavanje prve slike -->
 <link rel="preload" as="image" href="luka-hero.webp" fetchpriority="high">
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 
 <!-- Strukturisani podaci za Google: ko si, šta radiš, gde i kako te kontaktirati -->
 <script type="application/ld+json">
@@ -57,7 +58,7 @@
       "address": { "@type": "PostalAddress", "addressCountry": "RS" },
       "knowsAbout": ["Web dizajn", "Izrada sajtova", "UI/UX dizajn", "Webflow", "Shopify", "Online prodavnice"],
       "sameAs": [
-        "https://www.instagram.com/rakicweb/",
+        "https://www.instagram.com/rakicdsgn/",
         "https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/"
       ]
     },
@@ -737,6 +738,7 @@
   }
   .t-card blockquote::before {
     content: "\201C";
+    content: "\201C" / "";
     display: block;
     font-size: 80px;
     line-height: 0.6;
@@ -749,7 +751,7 @@
   .t-list.is-single blockquote::before { font-size: 120px; margin-bottom: 24px; }
   .t-person { display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); }
   .t-person img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--bg-3); }
-  .t-person strong { display: block; font-weight: 500; }
+  .t-person cite { display: block; font-style: normal; font-weight: 500; }
   .t-person span { font-size: 14px; color: var(--muted); }
 
   /* ---------- O MENI ---------- */
@@ -1236,12 +1238,29 @@
 </div>
 </section>
 
-<!-- UTISCI KLIJENATA: sekcija se sama prikazuje čim u skripti dole upišeš bar jednu pravu izjavu -->
-<section class="testimonials" id="utisci" hidden>
+<!-- UTISCI KLIJENATA: običan HTML tekst, vidljiv za Google i čitače ekrana -->
+<section class="testimonials" id="utisci" aria-labelledby="utisci-naslov">
 <div class="wrap">
   <span class="label reveal" data-i18n="tLabel">[ Utisci klijenata ]</span>
-  <h2 class="process-title reveal" data-i18n="tTitle">Šta kažu <span>klijenti.</span></h2>
-  <div class="t-list" id="tList"></div>
+  <h2 class="process-title reveal" id="utisci-naslov" data-i18n="tTitle">Šta kažu <span>klijenti.</span></h2>
+  <div class="t-list">
+    <figure class="t-card">
+      <blockquote>
+        <p data-i18n="t1Text">Popy Coffee je bio naš prvi projekat sa Lukom. Nakon toga smo mu poverili i izradu sajta za BAD Coffee Company. To najbolje govori koliko smo bili zadovoljni saradnjom. Znali smo kome želimo da poverimo sledeći projekat.</p>
+      </blockquote>
+      <figcaption class="t-person">
+        <div><cite>Novak Radulović</cite><span data-i18n="t1Role">Vlasnik, Popy Coffee Family &amp; BAD Coffee Company</span></div>
+      </figcaption>
+    </figure>
+    <figure class="t-card">
+      <blockquote>
+        <p data-i18n="t2Text">Luka je uspeo da kroz sajt prenese ono što nam je bilo najvažnije: atmosferu i karakter Terrazze. Saradnja je bila jednostavna i konkretna, a dobili smo sajt koji mnogo bolje predstavlja naš lokal i iskustvo koje želimo da pružimo gostima.</p>
+      </blockquote>
+      <figcaption class="t-person">
+        <div><cite>Bojan Grujičić</cite><span data-i18n="t2Role">Vlasnik, Terrazza Pizza &amp; Pasta Bar</span></div>
+      </figcaption>
+    </figure>
+  </div>
 </div>
 </section>
 
@@ -1259,7 +1278,7 @@
       <p data-i18n="aboutP2"><strong>Za koga radim?</strong> Najviše za ugostiteljstvo, hranu i kafu, ali i za lifestyle brendove, građevinu i modne agencije. Zajedničko im je jedno: brend sa karakterom kome je bitno kako izgleda online.</p>
 
       <div class="about-socials">
-        <a href="https://www.instagram.com/rakicweb/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+        <a href="https://www.instagram.com/rakicdsgn/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
         <a href="https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
       </div>
     </div>
@@ -1300,7 +1319,7 @@
     <div class="footer-col">
       <p class="footer-h" data-i18n="footFollow">Prati</p>
       <ul>
-        <li><a href="https://www.instagram.com/rakicweb/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://www.instagram.com/rakicdsgn/" target="_blank" rel="noopener">Instagram ↗</a></li>
         <li><a href="https://www.linkedin.com/in/luka-raki%C4%87-aaa39641a/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
       </ul>
     </div>
@@ -1323,34 +1342,6 @@
 </footer>
 
 <script>
-  /* =========================================================
-     UTISCI KLIJENATA
-     Upiši samo PRAVE izjave koje su ti klijenti poslali ili odobrili.
-     Dok je "text" prazan, kartica se ne prikazuje.
-     Kad je bar jedna popunjena, cela sekcija se pojavi sama.
-     "photo" je opciono: ime fajla slike ili logoa, npr. "img/popy-logo.webp".
-     ========================================================= */
-  const testimonials = [
-    {
-      name: "Novak Radulović",
-      role: { sr: "Vlasnik, Popy Coffee Family & BAD Coffee Company", en: "Owner, Popy Coffee Family & BAD Coffee Company" },
-      photo: "",
-      text: {
-        sr: "Popy Coffee je bio naš prvi projekat sa Lukom. Nakon toga smo mu poverili i izradu sajta za BAD Coffee Company. To najbolje govori koliko smo bili zadovoljni saradnjom. Znali smo kome želimo da poverimo sledeći projekat.",
-        en: "Popy Coffee was our first project with Luka. After that, we trusted him with the BAD Coffee Company website as well. That says best how happy we were with the collaboration. We knew who we wanted to trust with our next project."
-      }
-    },
-    {
-      name: "Bojan Grujičić",
-      role: { sr: "Vlasnik, Terrazza Pizza & Pasta Bar", en: "Owner, Terrazza Pizza & Pasta Bar" },
-      photo: "",
-      text: {
-        sr: "Luka je uspeo da kroz sajt prenese ono što nam je bilo najvažnije: atmosferu i karakter Terrazze. Saradnja je bila jednostavna i konkretna, a dobili smo sajt koji mnogo bolje predstavlja naš lokal i iskustvo koje želimo da pružimo gostima.",
-        en: "Through the website, Luka managed to capture what mattered most to us: the atmosphere and character of Terrazza. Working together was simple and to the point, and we got a website that represents our place and the experience we want to give our guests much better."
-      }
-    }
-  ];
-
   const mailSubject = { sr: "Upit za sajt", en: "Website inquiry" };
   const mailBody = {
     sr: "Zdravo Luka,\n\nNekoliko rečenica o brendu i projektu:\n\nLink do trenutnog sajta (ako postoji):\n\n",
@@ -1410,7 +1401,11 @@
       p2t: "Dizajn", p2: "Pravim izgled sajta i šaljem vam ga na pregled. Dorađujemo ga na osnovu vašeg feedbacka, kroz jasno definisane krugove revizija.",
       p3t: "Izrada", p3: "Sajt pravim tako da se brzo učitava i izgleda dobro na telefonu i računaru.",
       p4t: "Objava i podrška", p4: "Postavljam sajt i povezujem domen. Po potrebi možemo nastaviti saradnju kroz izmene i održavanje.",
-      tLabel: "[ Utisci klijenata ]", tTitle: "Šta kažu <span>klijenti.</span>",
+      tLabel: "[ Utisci klijenata ]",
+      t1Text: "Popy Coffee je bio naš prvi projekat sa Lukom. Nakon toga smo mu poverili i izradu sajta za BAD Coffee Company. To najbolje govori koliko smo bili zadovoljni saradnjom. Znali smo kome želimo da poverimo sledeći projekat.",
+      t1Role: "Vlasnik, Popy Coffee Family &amp; BAD Coffee Company",
+      t2Text: "Luka je uspeo da kroz sajt prenese ono što nam je bilo najvažnije: atmosferu i karakter Terrazze. Saradnja je bila jednostavna i konkretna, a dobili smo sajt koji mnogo bolje predstavlja naš lokal i iskustvo koje želimo da pružimo gostima.",
+      t2Role: "Vlasnik, Terrazza Pizza &amp; Pasta Bar", tTitle: "Šta kažu <span>klijenti.</span>",
       aboutLabel: "[ O meni ]",
       aboutLead: "Ja sam Luka. Volim kad sajt izgleda <em>čisto, jasno</em> i kad radi za onoga ko ga je naručio.",
       aboutP1: "Pre dizajna sam radio kao laboratorijski tehničar, a i danas radim kao model. <strong>Laboratorija me naučila preciznosti, kamera koliko prvi utisak znači.</strong> Oba se vide u svakom sajtu koji pravim.",
@@ -1477,7 +1472,11 @@
       p2t: "Design", p2: "I design the website and send it to you for review. We refine it based on your feedback, in clearly defined revision rounds.",
       p3t: "Build", p3: "I build it to load fast and look good on both phone and desktop.",
       p4t: "Launch and support", p4: "I publish the site and connect your domain. If needed, we can continue working together on updates and maintenance.",
-      tLabel: "[ Client words ]", tTitle: "What clients <span>say.</span>",
+      tLabel: "[ Client words ]",
+      t1Text: "Popy Coffee was our first project with Luka. After that, we trusted him with the BAD Coffee Company website as well. That says best how happy we were with the collaboration. We knew who we wanted to trust with our next project.",
+      t1Role: "Owner, Popy Coffee Family &amp; BAD Coffee Company",
+      t2Text: "Through the website, Luka managed to capture what mattered most to us: the atmosphere and character of Terrazza. Working together was simple and to the point, and we got a website that represents our place and the experience we want to give our guests much better.",
+      t2Role: "Owner, Terrazza Pizza &amp; Pasta Bar", tTitle: "What clients <span>say.</span>",
       aboutLabel: "[ About me ]",
       aboutLead: "I'm Luka. I like websites that look <em>clean, clear</em> and work for the people who ordered them.",
       aboutP1: "Before design I worked as a lab technician, and I still work as a model. <strong>The lab taught me precision, the camera taught me how much a first impression matters.</strong> You can see both in every website I build.",
@@ -1516,36 +1515,6 @@
     });
     size = Math.min(size, Math.max(cap, 72));
     lines.forEach(el => el.style.fontSize = size + "px");
-  }
-
-  // Utisci klijenata
-  const tSection = document.getElementById("utisci");
-  const tList = document.getElementById("tList");
-  function renderTestimonials(lang) {
-    const filled = testimonials.filter(t => t.text[lang] || t.text.sr);
-    tSection.hidden = filled.length === 0;
-    tList.classList.toggle("is-single", filled.length === 1);
-    tList.innerHTML = "";
-    filled.forEach(t => {
-      const card = document.createElement("figure");
-      card.className = "t-card";
-      const q = document.createElement("blockquote");
-      q.textContent = t.text[lang] || t.text.sr;
-      const person = document.createElement("figcaption");
-      person.className = "t-person";
-      if (t.photo) {
-        const img = document.createElement("img");
-        img.src = t.photo; img.alt = ""; img.loading = "lazy";
-        person.appendChild(img);
-      }
-      const who = document.createElement("div");
-      who.innerHTML = "<strong></strong><span></span>";
-      who.querySelector("strong").textContent = t.name;
-      who.querySelector("span").textContent = typeof t.role === "string" ? t.role : (t.role[lang] || t.role.sr);
-      person.appendChild(who);
-      card.append(q, person);
-      tList.appendChild(card);
-    });
   }
 
   // Rezervna zaštita: poslednje dve reči uvek ostaju zajedno u istom redu
@@ -1600,7 +1569,6 @@
       btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
     });
     mailBtn.href = "mailto:rakicluka.design@gmail.com?subject=" + encodeURIComponent(mailSubject[lang]) + "&body=" + encodeURIComponent(mailBody[lang]);
-    renderTestimonials(lang);
     noOrphans(document);
     markAccents();
     try { localStorage.setItem("lang", lang); } catch (e) {}
